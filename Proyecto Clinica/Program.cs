@@ -26,7 +26,7 @@ namespace Proyecto_Clinica
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            //Prueba PAPA
 
             app.MapControllers();
 
