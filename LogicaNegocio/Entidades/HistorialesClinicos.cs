@@ -17,8 +17,7 @@ namespace LogicaNegocio.Entidades
         public string Diagnostico {  get; set; }
         public string ImagenLaboratorio { get; set; }
         public string Tratamiento { get; set; }
-        public string Evolucion {  get; set; }
-
+        public List<Evolucion> evolucion { get; set; }
 
         public HistorialesClinicos()
         {
@@ -27,7 +26,7 @@ namespace LogicaNegocio.Entidades
 
         public HistorialesClinicos(Pacientes paciente, string razonDeConsulta, string antecedentes,
          string habitosPSB, string examenFisico, string diagnostico, string imagenLaboratorio, 
-         string tratamiento, string evolucion)
+         string tratamiento, Evolucion evolucion)
         {
             Paciente = paciente;
             RazonDeConsulta = razonDeConsulta;
@@ -39,5 +38,12 @@ namespace LogicaNegocio.Entidades
             Tratamiento = tratamiento;
             Evolucion = evolucion;
         }
+
+
+
+
+
+
+
     }
 }
