@@ -8,6 +8,7 @@ namespace LogicaNegocio.Entidades
 {
     public class Pacientes
     {
+        //Hola Mundo
         public int Id { get; set; }
         public string NombreCompleto { get; set; }
         public string NumeroDocumento { get; set; }
