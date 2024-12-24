@@ -1,5 +1,6 @@
 ﻿using DTOs.Paciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -13,11 +14,12 @@ namespace Proyecto_Clinica.Controllers
     {
 
         private readonly IAltaPaciente _altaPaciente;
+        private readonly ICUListarPaciente _ListarPaciente;
 
-        public PacienteController(IAltaPaciente altaPaciente)
+        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente)
         {
             _altaPaciente = altaPaciente;
-
+            _ListarPaciente = listarPaciente;
         }
 
         [HttpPost]
@@ -35,25 +37,29 @@ namespace Proyecto_Clinica.Controllers
         }
 
 
-
-
-
-
-
-
-        // GET: api/<PacienteController>
         [HttpGet]
-        public IEnumerable<string> Get()
+
+        public IActionResult GetPacientes()
         {
-            return new string[] { "value1", "value2" };
+
+            try
+            {
+
+                return Ok(_ListarPaciente.ListarPacientes());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
         }
 
-        // GET api/<PacienteController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+
+
+
+
+
+
+
 
 
 

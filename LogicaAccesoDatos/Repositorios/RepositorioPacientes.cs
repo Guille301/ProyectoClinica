@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.InterfacesRepositorios;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public List<Pacientes> FindAll()
         {
-            throw new NotImplementedException();
+            return _db.Pacientes.OrderBy(a => a.NombreCompleto).ToList();
         }
 
         public Pacientes FindById(int id)

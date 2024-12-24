@@ -16,6 +16,8 @@ namespace LogicaNegocio.Entidades
         public string Direccion {  get; set; }
         public string Patologia { get; set; }
 
+        
+
         public HistorialesClinicos historialesClinicos { get; set; }
         
         public Pacientes()
