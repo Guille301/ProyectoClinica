@@ -9,5 +9,11 @@ namespace LogicaNegocio.InterfacesRepositorios
 {
     public interface IRepositorioPacientes:IRepositorioIRepositorio<Pacientes>
     {
+
+        public void Add(Pacientes paciente);
+
+
+
+
     }
 }

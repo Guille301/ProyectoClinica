@@ -10,9 +10,9 @@ namespace LogicaAccesoDatos
 {
     public class ApplicationDbContext:DbContext
     {
-        DbSet<Usuarios> Usuarios {  get; set; }
-        DbSet<Pacientes> Pacientes { get; set; }
-        DbSet<HistorialesClinicos> HistorialesClinicos { get; set; }
+      public  DbSet<Usuarios> Usuarios {  get; set; }
+      public  DbSet<Pacientes> Pacientes { get; set; }
+      public  DbSet<HistorialesClinicos> HistorialesClinicos { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

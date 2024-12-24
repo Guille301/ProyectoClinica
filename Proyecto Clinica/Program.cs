@@ -1,9 +1,12 @@
 
 using LogicaAccesoDatos;
 using LogicaAccesoDatos.Repositorios;
+using LogicaAplicacion.CasosUso.CUPaciente;
+using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using LogicaNegocio.InterfacesRepositorios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -15,9 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configurar la cadena de conexión (desde appsettings.json)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");//DefaultConnection debe coincidir con el nombre designado en el JSON.
 
-// Registrar el DbContext en el contenedor de servicios
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+
 
 
 // Add services to the container.
@@ -27,11 +28,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+/*DbContext*/
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionClinica")));
+
 
 
 //Inyecciones
 
 //CASOS DE USO
+builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
+
+
 
 //REPOS
 builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();

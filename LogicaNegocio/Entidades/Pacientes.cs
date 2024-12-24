@@ -7,30 +7,43 @@ using System.Threading.Tasks;
 namespace LogicaNegocio.Entidades
 {
     public class Pacientes
-    {
-        //Hola Mundo
+    {  
         public int Id { get; set; }
         public string NombreCompleto { get; set; }
         public string NumeroDocumento { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public int Anios {  get; set; }
         public string Telefono { get; set; }
         public string Direccion {  get; set; }
         public string Patologia { get; set; }
+
+        public HistorialesClinicos historialesClinicos { get; set; }
+        
         public Pacientes()
         {
             
         }
 
-        public Pacientes(string nombreCompleto, string numeroDocumento, string telefono,
-         DateTime fechaNacimiento, int anios, string direccion, string patologia)
+        public Pacientes(string nombreCompleto, string numeroDocumento, DateTime fechaNacimiento, string telefono, string direccion, string patologia, HistorialesClinicos historialesClinicos)
         {
             NombreCompleto = nombreCompleto;
             NumeroDocumento = numeroDocumento;
-            Anios = anios;
+            FechaNacimiento = fechaNacimiento;
+            Telefono = telefono;
+            Direccion = direccion;
+            Patologia = patologia;
+            this.historialesClinicos = historialesClinicos;
+        }
+
+
+        public Pacientes(string nombreCompleto, string numeroDocumento, DateTime fechaNacimiento, string telefono, string direccion, string patologia)
+        {
+            NombreCompleto = nombreCompleto;
+            NumeroDocumento = numeroDocumento;
+            FechaNacimiento = fechaNacimiento;
             Telefono = telefono;
             Direccion = direccion;
             Patologia = patologia;
         }
+
     }
 }
