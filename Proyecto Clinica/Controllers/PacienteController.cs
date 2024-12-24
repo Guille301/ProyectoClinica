@@ -55,11 +55,7 @@ namespace Proyecto_Clinica.Controllers
             return "value";
         }
 
-        // POST api/<PacienteController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+
 
         // PUT api/<PacienteController>/5
         [HttpPut("{id}")]
