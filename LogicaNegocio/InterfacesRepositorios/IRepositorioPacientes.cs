@@ -12,6 +12,7 @@ namespace LogicaNegocio.InterfacesRepositorios
 
         public void Add(Pacientes paciente);
 
+        public Pacientes FindByCI(string numeroDoc);
 
 
 

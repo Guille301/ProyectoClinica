@@ -22,22 +22,29 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
 
         }
 
-
         public void Ejecutar(PacienteAltaDto PacienteDTO)
         {
             try
             {
+                LogicaNegocio.Entidades.Pacientes pacExiste = _repoPaciente.FindByCI(PacienteDTO.NumeroDocumento);
 
-                LogicaNegocio.Entidades.Pacientes pa = PacienteMappers.FromUsuarioPacienteAltaDto(PacienteDTO);
-                _repoPaciente.Add(pa);
-
+                if (pacExiste == null)
+                {
+                    LogicaNegocio.Entidades.Pacientes pa = PacienteMappers.FromUsuarioPacienteAltaDto(PacienteDTO);
+                    _repoPaciente.Add(pa);
+                }
+                else
+                {
+                    throw new Exception("Ese número de documento ya existe");
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+               
+                throw new Exception($"Ocurrió un error al intentar registrar el paciente: {ex.Message}", ex);
             }
-
         }
+
 
 
 
