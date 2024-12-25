@@ -38,6 +38,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 //CASOS DE USO
 builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
+builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
 
 
 

@@ -9,6 +9,6 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
 {
     public interface ICUListarPaciente
     {
-        List<PacienteListaDto> ListarPacientes();
+      public List<PacienteListaDto> ListarPacientes();
     }
 }
