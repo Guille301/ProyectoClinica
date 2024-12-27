@@ -41,10 +41,12 @@ builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
 
 
 
+
 //REPOS
 builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
 builder.Services.AddScoped<IRepositorioPacientes, RepositorioPacientes>();
 builder.Services.AddScoped<IRepositorioHistorialesClinicos, RepositorioHistorialesClinicos>();
+
 
 //Confifuracion jsonWebToken
 
