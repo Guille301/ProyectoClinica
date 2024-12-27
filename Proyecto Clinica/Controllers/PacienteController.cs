@@ -15,11 +15,15 @@ namespace Proyecto_Clinica.Controllers
 
         private readonly IAltaPaciente _altaPaciente;
         private readonly ICUListarPaciente _ListarPaciente;
+        private readonly ICUListarPacienteCI _CUListarPacienteCI;
+        private readonly ICUListarPacienteNombre cUListarPacienteNombre;
 
-        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente)
+        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente, ICUListarPacienteCI cUListarPacienteCI, ICUListarPacienteNombre cUListarPacienteNombre)
         {
             _altaPaciente = altaPaciente;
             _ListarPaciente = listarPaciente;
+            _CUListarPacienteCI = cUListarPacienteCI;
+            this.cUListarPacienteNombre = cUListarPacienteNombre;
         }
 
         [HttpPost]
@@ -52,6 +56,52 @@ namespace Proyecto_Clinica.Controllers
             {
                 return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
             }
+        }
+
+
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult ObtenerPacienteCI(string ci)
+        {
+
+            try
+            {
+                PacienteDto dto = _CUListarPacienteCI.obtenerPacienteCi(ci);
+                return Ok(dto);//TODO
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+
+
+
+
+
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult ObtenerPacienteNombre(string nombre)
+        {
+
+            try
+            {
+                PacienteDto dto = cUListarPacienteNombre.ObtenerPacientePorNombre(nombre);
+                return Ok(dto);//TODO
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+
+
+
+
+
         }
 
 
