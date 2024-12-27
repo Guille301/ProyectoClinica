@@ -23,6 +23,7 @@ namespace Proyecto_Clinica.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(PacienteAltaDto altaPacienteDto)
         {
             try
@@ -38,7 +39,7 @@ namespace Proyecto_Clinica.Controllers
 
 
         [HttpGet]
-
+        [Authorize]
         public IActionResult GetPacientes()
         {
 

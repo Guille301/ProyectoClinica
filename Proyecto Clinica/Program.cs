@@ -2,7 +2,9 @@
 using LogicaAccesoDatos;
 using LogicaAccesoDatos.Repositorios;
 using LogicaAplicacion.CasosUso.CUPaciente;
+using LogicaAplicacion.CasosUso.CUUsuario;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
+using LogicaAplicacion.InterfaceCasosUso.ICUUsuario;
 using LogicaNegocio.InterfacesRepositorios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +41,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //CASOS DE USO
 builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
 builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
+builder.Services.AddScoped<ICULogin, Login>();
 
 
 

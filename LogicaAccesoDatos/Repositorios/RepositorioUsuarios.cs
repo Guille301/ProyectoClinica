@@ -10,29 +10,46 @@ namespace LogicaAccesoDatos.Repositorios
 {
     public class RepositorioUsuarios : IRepositorioUsuarios
     {
+        private ApplicationDbContext _context;
+
+        public RepositorioUsuarios(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Usuarios nuevo)
         {
-            throw new NotImplementedException();
+            _context.Usuarios.Add(nuevo);
+            _context.SaveChanges();
         }
 
         public List<Usuarios> FindAll()
         {
-            throw new NotImplementedException();
+            return _context.Usuarios.ToList();
+        }
+
+        public Usuarios FindByGmail(string email)
+        {
+            Usuarios buscado = _context.Usuarios.Where(u => u.Email == email).SingleOrDefault();
+            return buscado;
         }
 
         public Usuarios FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Usuarios.Find(id);
         }
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Usuarios usuarioEncontrado = FindById(id);
+            _context.Usuarios.Remove(usuarioEncontrado);
+            _context.SaveChanges();
         }
 
         public void Update(Usuarios obj)
         {
-            throw new NotImplementedException();
+            _context.Usuarios.Update(obj);
+            _context.SaveChanges();
         }
     }
 }

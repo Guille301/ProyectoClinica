@@ -9,5 +9,6 @@ namespace LogicaNegocio.InterfacesRepositorios
 {
     public interface IRepositorioUsuarios:IRepositorioIRepositorio<Usuarios>
     {
+        Usuarios FindByGmail(string email);
     }
 }
