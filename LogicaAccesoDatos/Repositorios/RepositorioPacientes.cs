@@ -37,6 +37,30 @@ namespace LogicaAccesoDatos.Repositorios
             return _db.Pacientes.OrderBy(a => a.NombreCompleto).ToList();
         }
 
+        public Pacientes FindByCI(string numeroDoc)
+        {
+            try
+            {
+                var paciente = _db.Pacientes.Where(u => u.NumeroDocumento == numeroDoc).FirstOrDefault();
+                return paciente;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error", ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         public Pacientes FindById(int id)
         {
             throw new NotImplementedException();

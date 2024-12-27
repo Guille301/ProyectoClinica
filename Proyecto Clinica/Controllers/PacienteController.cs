@@ -47,9 +47,9 @@ namespace Proyecto_Clinica.Controllers
 
                 return Ok(_ListarPaciente.ListarPacientes());
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
             }
         }
 
