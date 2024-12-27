@@ -14,6 +14,8 @@ namespace LogicaNegocio.InterfacesRepositorios
 
         public Pacientes FindByCI(string numeroDoc);
 
+        public Pacientes FindByName(string nombre);
+
 
 
     }

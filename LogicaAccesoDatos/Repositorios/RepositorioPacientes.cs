@@ -51,6 +51,20 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
 
+        public Pacientes FindByName(string nombre)
+        {
+            try
+            {
+                var paciente = _db.Pacientes.Where(u => u.NombreCompleto == nombre).FirstOrDefault();
+                return paciente;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error", ex);
+            }
+        }
+
+
 
 
 
@@ -65,6 +79,8 @@ namespace LogicaAccesoDatos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+      
 
         public void Remove(int id)
         {

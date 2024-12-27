@@ -34,6 +34,17 @@ namespace DTOs.Mappers
         }
 
 
+        public static PacienteDto FromPacienteToDtoPaciente(Pacientes dto)
+        {
+            PacienteDto paciente = new PacienteDto();
+            paciente.NombreCompleto = dto.NombreCompleto;
+            paciente.NumeroDocumento = dto.NumeroDocumento;
+            paciente.Edad = dto.FechaNacimiento;
+            return paciente;
+
+        }
+
+
 
 
 
