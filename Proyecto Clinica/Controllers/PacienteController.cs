@@ -42,8 +42,8 @@ namespace Proyecto_Clinica.Controllers
         }
 
 
-        [HttpGet]
-        [Authorize]
+        [HttpGet("Todos los Pacientes")]
+
         public IActionResult GetPacientes()
         {
 
@@ -61,8 +61,8 @@ namespace Proyecto_Clinica.Controllers
 
 
 
-        [HttpGet]
-        [Authorize]
+        [HttpGet("Paciente por cedula")]
+
         public IActionResult ObtenerPacienteCI(string ci)
         {
 
@@ -83,8 +83,8 @@ namespace Proyecto_Clinica.Controllers
         }
 
 
-        [HttpGet]
-        [Authorize]
+        [HttpGet("Pacientes por nombre")]
+
         public IActionResult ObtenerPacienteNombre(string nombre)
         {
 
@@ -97,11 +97,6 @@ namespace Proyecto_Clinica.Controllers
             {
                 return StatusCode(500);
             }
-
-
-
-
-
         }
 
 
