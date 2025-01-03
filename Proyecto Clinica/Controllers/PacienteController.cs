@@ -17,13 +17,15 @@ namespace Proyecto_Clinica.Controllers
         private readonly ICUListarPaciente _ListarPaciente;
         private readonly ICUListarPacienteCI _CUListarPacienteCI;
         private readonly ICUListarPacienteNombre cUListarPacienteNombre;
+        private readonly ICUPacienteDetalle _cUPacienteDetalle;
 
-        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente, ICUListarPacienteCI cUListarPacienteCI, ICUListarPacienteNombre cUListarPacienteNombre)
+        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente, ICUListarPacienteCI cUListarPacienteCI, ICUListarPacienteNombre cUListarPacienteNombre, ICUPacienteDetalle cUPacienteDetalle)
         {
             _altaPaciente = altaPaciente;
             _ListarPaciente = listarPaciente;
             _CUListarPacienteCI = cUListarPacienteCI;
             this.cUListarPacienteNombre = cUListarPacienteNombre;
+            _cUPacienteDetalle = cUPacienteDetalle;
         }
 
         [HttpPost]
@@ -91,6 +93,27 @@ namespace Proyecto_Clinica.Controllers
             try
             {
                 PacienteDto dto = cUListarPacienteNombre.ObtenerPacientePorNombre(nombre);
+                return Ok(dto);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
+
+
+
+
+
+
+        [HttpGet("Detalle Paciente")]
+
+        public IActionResult ObtenerPacienteDetalle(int id)
+        {
+
+            try
+            {
+                PacienteDetalleDto dto = _cUPacienteDetalle.obtenerPacienteDetalle(id);
                 return Ok(dto);
             }
             catch (Exception e)

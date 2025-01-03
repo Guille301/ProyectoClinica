@@ -64,8 +64,13 @@ namespace LogicaAccesoDatos.Repositorios
             }
         }
 
+        public Pacientes FindDetalle(int id)
+        {
+            return _db.Pacientes.Where(p => p.Id == id).FirstOrDefault();
+        }
 
-        
+
+
 
 
 
@@ -91,5 +96,7 @@ namespace LogicaAccesoDatos.Repositorios
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

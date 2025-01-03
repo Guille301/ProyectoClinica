@@ -47,6 +47,7 @@ builder.Services.AddScoped<ICUListarPacienteNombre, ListarPacientePorNombre>();
 builder.Services.AddScoped<ICUListarPacienteCI, ListarPacientePorCI>();
 builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
 builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
+builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
 
 
 
