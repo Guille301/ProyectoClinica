@@ -1,6 +1,7 @@
 
 using LogicaAccesoDatos;
 using LogicaAccesoDatos.Repositorios;
+using LogicaAplicacion.CasosUso.CUEvolucion;
 using LogicaAplicacion.CasosUso.CUPaciente;
 using LogicaAplicacion.CasosUso.CUUsuario;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
@@ -44,7 +45,8 @@ builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
 builder.Services.AddScoped<ICULogin, Login>();
 builder.Services.AddScoped<ICUListarPacienteNombre, ListarPacientePorNombre>();
 builder.Services.AddScoped<ICUListarPacienteCI, ListarPacientePorCI>();
-
+builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
+builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
 
 
 
@@ -52,6 +54,8 @@ builder.Services.AddScoped<ICUListarPacienteCI, ListarPacientePorCI>();
 builder.Services.AddScoped<IRepositorioUsuarios, RepositorioUsuarios>();
 builder.Services.AddScoped<IRepositorioPacientes, RepositorioPacientes>();
 builder.Services.AddScoped<IRepositorioHistorialesClinicos, RepositorioHistorialesClinicos>();
+builder.Services.AddScoped<IRepositorioEvoluciones, RepositorioEvoluciones>();
+
 
 
 //Confifuracion jsonWebToken

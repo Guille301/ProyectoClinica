@@ -14,7 +14,7 @@ namespace LogicaAccesoDatos
       public  DbSet<Pacientes> Pacientes { get; set; }
       public  DbSet<HistorialesClinicos> HistorialesClinicos { get; set; }
 
-
+      public DbSet<Evolucion> Evoluciones {  get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 

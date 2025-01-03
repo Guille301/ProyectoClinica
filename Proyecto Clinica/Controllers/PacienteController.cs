@@ -69,7 +69,7 @@ namespace Proyecto_Clinica.Controllers
             try
             {
                 PacienteDto dto = _CUListarPacienteCI.obtenerPacienteCi(ci);
-                return Ok(dto);//TODO
+                return Ok(dto);
             }
             catch (Exception e)
             {
@@ -91,7 +91,7 @@ namespace Proyecto_Clinica.Controllers
             try
             {
                 PacienteDto dto = cUListarPacienteNombre.ObtenerPacientePorNombre(nombre);
-                return Ok(dto);//TODO
+                return Ok(dto);
             }
             catch (Exception e)
             {

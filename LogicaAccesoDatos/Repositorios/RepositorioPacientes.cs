@@ -28,7 +28,7 @@ namespace LogicaAccesoDatos.Repositorios
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al agregar el usuario", ex);
+                throw new Exception("Error al agregar el paciente", ex);
             }
         }
 
@@ -65,7 +65,7 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
 
-
+        
 
 
 

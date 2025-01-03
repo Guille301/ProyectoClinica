@@ -18,14 +18,14 @@ namespace LogicaNegocio.Entidades
         public string Diagnostico {  get; set; }
         public string ImagenLaboratorio { get; set; }
         public string Tratamiento { get; set; }
-        public List<Evolucion> evolucion { get; set; }
+        
 
         public HistorialesClinicos()
         {
             
         }
 
-        public HistorialesClinicos(Pacientes paciente, string razonDeConsulta, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string imagenLaboratorio, string tratamiento, List<Evolucion> evolucion)
+        public HistorialesClinicos(Pacientes paciente, string razonDeConsulta, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string imagenLaboratorio, string tratamiento)
         {
             Paciente = paciente;
             RazonDeConsulta = razonDeConsulta;
@@ -35,7 +35,7 @@ namespace LogicaNegocio.Entidades
             Diagnostico = diagnostico;
             ImagenLaboratorio = imagenLaboratorio;
             Tratamiento = tratamiento;
-            this.evolucion = evolucion;
+          
         }
 
 
