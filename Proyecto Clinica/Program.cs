@@ -16,7 +16,22 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//HOLA
+
+
+// Agregar servicios de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin() // Permitir cualquier origen
+              .AllowAnyHeader() // Permitir cualquier encabezado
+              .AllowAnyMethod(); // Permitir cualquier método HTTP (GET, POST, etc.)
+    });
+});
+
+
+
+
 
 // Configurar la cadena de conexión (desde appsettings.json)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");//DefaultConnection debe coincidir con el nombre designado en el JSON.
@@ -99,6 +114,7 @@ app.UseAuthorization();
 
 
 app.UseAuthorization();
+app.UseCors();
 app.MapControllers();
 
 app.Run();

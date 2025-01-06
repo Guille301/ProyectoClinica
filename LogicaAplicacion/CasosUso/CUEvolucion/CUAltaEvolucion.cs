@@ -1,5 +1,5 @@
-﻿using DTOs.Mappers;
-using DTOs.Paciente.DTOs.Evolucion;
+﻿using DTOs.Evolucion;
+using DTOs.Mappers;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using LogicaNegocio.InterfacesRepositorios;
 using System;

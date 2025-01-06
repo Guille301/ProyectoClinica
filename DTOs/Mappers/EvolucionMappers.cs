@@ -1,5 +1,6 @@
-﻿using DTOs.Paciente;
-using DTOs.Paciente.DTOs.Evolucion;
+﻿using DTOs.Evolucion;
+using DTOs.Paciente;
+
 using LogicaNegocio.Entidades;
 using System;
 using System.Collections.Generic;
