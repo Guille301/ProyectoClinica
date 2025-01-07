@@ -58,11 +58,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
 builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
 builder.Services.AddScoped<ICULogin, Login>();
-builder.Services.AddScoped<ICUListarPacienteNombre, ListarPacientePorNombre>();
-builder.Services.AddScoped<ICUListarPacienteCI, ListarPacientePorCI>();
 builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
 builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
 builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
+builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();
 
 
 

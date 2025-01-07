@@ -15,17 +15,15 @@ namespace Proyecto_Clinica.Controllers
 
         private readonly IAltaPaciente _altaPaciente;
         private readonly ICUListarPaciente _ListarPaciente;
-        private readonly ICUListarPacienteCI _CUListarPacienteCI;
-        private readonly ICUListarPacienteNombre cUListarPacienteNombre;
         private readonly ICUPacienteDetalle _cUPacienteDetalle;
+        private readonly ICUPacienteFiltro _cUPacienteFiltro;
 
-        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente, ICUListarPacienteCI cUListarPacienteCI, ICUListarPacienteNombre cUListarPacienteNombre, ICUPacienteDetalle cUPacienteDetalle)
+        public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente,   ICUPacienteDetalle cUPacienteDetalle, ICUPacienteFiltro cUPacienteFiltro)
         {
             _altaPaciente = altaPaciente;
             _ListarPaciente = listarPaciente;
-            _CUListarPacienteCI = cUListarPacienteCI;
-            this.cUListarPacienteNombre = cUListarPacienteNombre;
             _cUPacienteDetalle = cUPacienteDetalle;
+            _cUPacienteFiltro = cUPacienteFiltro;
         }
 
         [HttpPost]
@@ -63,43 +61,25 @@ namespace Proyecto_Clinica.Controllers
 
 
 
-        [HttpGet("Paciente por cedula")]
 
-        public IActionResult ObtenerPacienteCI(string ci)
+        [HttpGet("Paciente Filtro")]
+
+        public IActionResult filtrarPacientes([FromQuery] string? ci, [FromQuery] string? nombre)
         {
 
             try
             {
-                PacienteDto dto = _CUListarPacienteCI.obtenerPacienteCi(ci);
-                return Ok(dto);
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500);
-            }
-
-
-
-
-
-        }
-
-
-        [HttpGet("Pacientes por nombre")]
-
-        public IActionResult ObtenerPacienteNombre(string nombre)
-        {
-
-            try
-            {
-                PacienteDto dto = cUListarPacienteNombre.ObtenerPacientePorNombre(nombre);
-                return Ok(dto);
+                var  filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
+                return Ok(filtro);
             }
             catch (Exception e)
             {
                 return StatusCode(500);
             }
         }
+
+
+
 
 
 

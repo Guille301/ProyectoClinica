@@ -1,14 +1,14 @@
-﻿using DTOs.Paciente;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTOs.Paciente;
 
 namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
 {
-    public interface ICUListarPacienteCI
+    public interface ICUPacienteFiltro
     {
-        PacienteDto obtenerPacienteCi(string ci);
+        public IEnumerable<PacienteFiltroDto> filtroPacientes(string? ci, string? nombre);
     }
 }

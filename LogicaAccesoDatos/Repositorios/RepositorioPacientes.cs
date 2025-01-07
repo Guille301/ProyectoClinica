@@ -37,6 +37,47 @@ namespace LogicaAccesoDatos.Repositorios
             return _db.Pacientes.OrderBy(a => a.NombreCompleto).ToList();
         }
 
+
+
+
+
+        public List<Pacientes> FiltroPacientes(string ci, string nombre)
+        {
+            try
+            {
+                var query = _db.Pacientes.AsQueryable();
+
+                // Filtro por documento
+                if (ci != null)
+                {
+                    query = query.Where(e => e.NumeroDocumento == ci);
+                }
+
+                // Filtro por nombre completo
+                if (!string.IsNullOrWhiteSpace(nombre))
+                {
+                    query = query.Where(e => e.NombreCompleto.ToLower().Contains(nombre.ToLower()));
+                }
+
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se encontraron Pacientes ", ex);
+            }
+        }
+
+
+
+
+        public Pacientes FindDetalle(int id)
+        {
+            return _db.Pacientes.Where(p => p.Id == id).FirstOrDefault();
+        }
+
+
+
+
         public Pacientes FindByCI(string numeroDoc)
         {
             try
@@ -49,26 +90,6 @@ namespace LogicaAccesoDatos.Repositorios
                 throw new Exception("Error", ex);
             }
         }
-
-
-        public Pacientes FindByName(string nombre)
-        {
-            try
-            {
-                var paciente = _db.Pacientes.Where(u => u.NombreCompleto == nombre).FirstOrDefault();
-                return paciente;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error", ex);
-            }
-        }
-
-        public Pacientes FindDetalle(int id)
-        {
-            return _db.Pacientes.Where(p => p.Id == id).FirstOrDefault();
-        }
-
 
 
 

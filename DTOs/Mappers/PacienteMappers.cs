@@ -33,7 +33,6 @@ namespace DTOs.Mappers
             return ret;
         }
 
-
         public static PacienteDto FromPacienteToDtoPaciente(Pacientes dto)
         {
             PacienteDto paciente = new PacienteDto();
@@ -43,6 +42,9 @@ namespace DTOs.Mappers
             return paciente;
 
         }
+
+
+
 
 
         public static PacienteDetalleDto FromPacienteDetalleToDtoPacienteDetalle(Pacientes dto)
@@ -56,6 +58,26 @@ namespace DTOs.Mappers
             paciente.Direccion = dto.Direccion;
             return paciente;
 
+        }
+
+
+
+        public static List<PacienteFiltroDto> FromDtoFiltrarPacientes(List<Pacientes> pacientes)
+        {
+            List<PacienteFiltroDto> ret = new List<PacienteFiltroDto>();
+
+
+            
+
+            foreach (Pacientes P in pacientes)
+            {
+                PacienteFiltroDto listaFiltroDto = new PacienteFiltroDto();
+                listaFiltroDto.NombreCompleto = P.NombreCompleto;
+                listaFiltroDto.NumeroDocumento = P.NumeroDocumento;
+                listaFiltroDto.Edad = P.FechaNacimiento;
+                ret.Add(listaFiltroDto);
+            }
+            return ret;
         }
 
 
