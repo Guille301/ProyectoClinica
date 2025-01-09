@@ -18,13 +18,13 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
-        private readonly IRepositorioHistorialesClinicos _repoHistoria;
+     
 
 
-        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo, IRepositorioHistorialesClinicos repoHi)
+        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo)
         {
             _repoEvolucion = repoEvo;
-            _repoHistoria = repoHi;
+           
 
         }
 

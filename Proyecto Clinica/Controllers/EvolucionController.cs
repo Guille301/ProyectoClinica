@@ -1,6 +1,7 @@
 ﻿using DTOs.Evolucion;
 using DTOs.Paciente;
 using LogicaAplicacion.CasosUso.CUPaciente;
+using LogicaAplicacion.InterfaceCasosUso.ICUEvolucion;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace Proyecto_Clinica.Controllers
     public class EvolucionController : ControllerBase
     {
         private readonly IAltaEvolucion _cuAltaEvolucion;
+        private readonly ICUListarEvoluciones _cUListarEvoluciones;
 
-        public EvolucionController(IAltaEvolucion cuAltaEvolucion)
+        public EvolucionController(IAltaEvolucion cuAltaEvolucion, ICUListarEvoluciones cuListarEvoluciones )
         {
             _cuAltaEvolucion = cuAltaEvolucion;
+            _cUListarEvoluciones = cuListarEvoluciones;
         }
 
 
@@ -29,6 +32,25 @@ namespace Proyecto_Clinica.Controllers
             {
                 _cuAltaEvolucion.Ejecutar(altaEvolucionDto, id);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
+            }
+        }
+
+
+
+
+        [HttpGet("Listar Evoluciones")]
+
+        public IActionResult GetEvoluciones()
+        {
+
+            try
+            {
+
+                return Ok(_cUListarEvoluciones.ListarEvoluciones());
             }
             catch (Exception ex)
             {

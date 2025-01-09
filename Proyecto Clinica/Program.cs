@@ -4,6 +4,7 @@ using LogicaAccesoDatos.Repositorios;
 using LogicaAplicacion.CasosUso.CUEvolucion;
 using LogicaAplicacion.CasosUso.CUPaciente;
 using LogicaAplicacion.CasosUso.CUUsuario;
+using LogicaAplicacion.InterfaceCasosUso.ICUEvolucion;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUUsuario;
 using LogicaNegocio.InterfacesRepositorios;
@@ -64,6 +65,7 @@ builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
 builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();
 builder.Services.AddScoped<IPacienteFicha, PacienteFichaIdentificacion>();
 builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
+builder.Services.AddScoped<ICUListarEvoluciones, CUListarEvolucion>();
 
 
 

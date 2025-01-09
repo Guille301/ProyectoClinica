@@ -18,7 +18,12 @@ namespace LogicaNegocio.Entidades
         [JsonIgnore]
         public HistorialesClinicos HistorialClinico { get; set; }
 
-     
+        public Evolucion()
+        {
+            
+        }
+
+
 
 
         public Evolucion(int idHistoria, DateTime fecha, string descripcionEvolucion)
