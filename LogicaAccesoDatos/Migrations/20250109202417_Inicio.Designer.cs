@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogicaAccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250109195452_Inicio")]
+    [Migration("20250109202417_Inicio")]
     partial class Inicio
     {
         /// <inheritdoc />
@@ -69,7 +69,15 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EnfermedadActual")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ExamenFisico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExameneLaboratorio")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -77,16 +85,12 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagenLaboratorio")
+                    b.Property<string>("MotivoDeConsulta")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PacienteId")
                         .HasColumnType("int");
-
-                    b.Property<string>("RazonDeConsulta")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tratamiento")
                         .IsRequired()

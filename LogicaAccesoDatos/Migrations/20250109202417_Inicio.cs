@@ -50,12 +50,13 @@ namespace LogicaAccesoDatos.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PacienteId = table.Column<int>(type: "int", nullable: false),
-                    RazonDeConsulta = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MotivoDeConsulta = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EnfermedadActual = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Antecedentes = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HabitosPSB = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ExamenFisico = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Diagnostico = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ImagenLaboratorio = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExameneLaboratorio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tratamiento = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

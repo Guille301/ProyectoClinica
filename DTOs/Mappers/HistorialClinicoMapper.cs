@@ -11,22 +11,16 @@ namespace DTOs.Mappers
 {
     public class HistorialClinicoMapper
     {
-        public static HistorialesClinicos DtoHistorialClinicoToHisorialClinico(DtoAltaHistorialClinico dto) 
-        {
-            HistorialesClinicos retorno = new HistorialesClinicos();
+        //public static HistorialesClinicos DtoHistorialClinicoToHisorialClinico(DtoAltaHistorialClinico dto) 
+        //{
+        //    HistorialesClinicos retorno = new HistorialesClinicos();
+        //    retorno.MotivoDeConsulta = dto.RazonDeConsulta;
+        //    retorno.EnfermedadActual = dto.Enfem
 
-            retorno.HabitosPSB = dto.HabitosPSB;
-            retorno.RazonDeConsulta = dto.RazonDeConsulta;
-            retorno.Antecedentes = dto.Antecedentes;
-            retorno.Diagnostico = dto.Diagnostico;
-            retorno.ExamenFisico = dto.ExamenFisico;
-            retorno.ImagenLaboratorio = dto.ImagenLaboratorio;
-            retorno.Tratamiento = dto.Tratamiento;
+        //    return retorno; 
+        //}
 
-            return retorno; 
-        }
-
-
+  
 
 
 
@@ -45,7 +39,6 @@ namespace DTOs.Mappers
         //    return histo;
 
         //}
-      
 
 
 
@@ -54,19 +47,20 @@ namespace DTOs.Mappers
 
 
 
-        public static HistorialesClinicos FromDtoAltaEventoToEvento(DtoAltaHistorialClinico dto)
-        {
-            HistorialesClinicos historia = new HistorialesClinicos();
-            historia.HabitosPSB = dto.HabitosPSB;
-            historia.RazonDeConsulta = dto.RazonDeConsulta;
-            historia.Antecedentes = dto.Antecedentes;
-            historia.Diagnostico = dto.Diagnostico;
-            historia.ExamenFisico = dto.ExamenFisico;
-            historia.ImagenLaboratorio = dto.ImagenLaboratorio;
-            historia.Tratamiento = dto.Tratamiento;
+
+        //public static HistorialesClinicos FromDtoAltaEventoToEvento(DtoAltaHistorialClinico dto)
+        //{
+        //    HistorialesClinicos historia = new HistorialesClinicos();
+        //    historia.HabitosPSB = dto.HabitosPSB;
+        //    historia.RazonDeConsulta = dto.RazonDeConsulta;
+        //    historia.Antecedentes = dto.Antecedentes;
+        //    historia.Diagnostico = dto.Diagnostico;
+        //    historia.ExamenFisico = dto.ExamenFisico;
+        //    historia.ImagenLaboratorio = dto.ImagenLaboratorio;
+        //    historia.Tratamiento = dto.Tratamiento;
            
-            return historia;
-        }
+        //    return historia;
+        //}
 
 
 

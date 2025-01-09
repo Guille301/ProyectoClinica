@@ -11,12 +11,13 @@ namespace LogicaNegocio.Entidades
         public int Id { get; set; }
         public int PacienteId { get; set; }
         public Pacientes Paciente { get; set; }
-        public string RazonDeConsulta { get; set; }
+        public string MotivoDeConsulta { get; set; }
+        public string EnfermedadActual { get; set; }
         public string Antecedentes { get; set; }
         public string HabitosPSB { get; set; }
         public string ExamenFisico { get; set; }
         public string Diagnostico { get; set; }
-        public string ImagenLaboratorio { get; set; }
+        public string ExameneLaboratorio { get; set; }
         public string Tratamiento { get; set; }
 
 
@@ -25,20 +26,17 @@ namespace LogicaNegocio.Entidades
 
         }
 
-        public HistorialesClinicos(Pacientes paciente, string razonDeConsulta, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string imagenLaboratorio, string tratamiento)
+        public HistorialesClinicos(Pacientes paciente, string motivoDeConsulta, string enfermedadActual, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string exameneLaboratorio, string tratamiento)
         {
             Paciente = paciente;
-            RazonDeConsulta = razonDeConsulta;
+            MotivoDeConsulta = motivoDeConsulta;
+            EnfermedadActual = enfermedadActual;
             Antecedentes = antecedentes;
             HabitosPSB = habitosPSB;
             ExamenFisico = examenFisico;
             Diagnostico = diagnostico;
-            ImagenLaboratorio = imagenLaboratorio;
+            ExameneLaboratorio = exameneLaboratorio;
             Tratamiento = tratamiento;
-
         }
-
-
-
     }
 }
