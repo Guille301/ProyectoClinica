@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTOs;
 
 namespace DTOs.Mappers
 {
@@ -20,7 +21,25 @@ namespace DTOs.Mappers
 
         }
 
-        
+        public static List<EvolucionListaDto> FromListEvolucionToListEvolucionDto(List<LogicaNegocio.Entidades.Evolucion> evolucion)
+        {
+            List<EvolucionListaDto> ret = new List<EvolucionListaDto>();
+
+            foreach (LogicaNegocio.Entidades.Evolucion e in evolucion)
+            {
+                EvolucionListaDto listaEvoDto = new EvolucionListaDto();
+                
+                listaEvoDto.IdHistoria = e.IdHistoria;
+                listaEvoDto.fecha = e.fecha;
+                listaEvoDto.DescripcionEvolucion = e.DescripcionEvolucion;
+
+                
+                ret.Add(listaEvoDto);
+            }
+            return ret;
+        }
+
+
 
 
 

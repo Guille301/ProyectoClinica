@@ -37,7 +37,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public Evolucion FindById(int id)
         {
-            throw new NotImplementedException();
+            return _db.Evoluciones.Find(id);
         }
 
         public void Remove(int id)
