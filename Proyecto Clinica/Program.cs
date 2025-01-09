@@ -66,6 +66,8 @@ builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
 builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();
 builder.Services.AddScoped<IPacienteFicha, PacienteFichaIdentificacion>();
 builder.Services.AddScoped<IAgregrarHistoriaClinica, AltaHistoriaClinica>();
+builder.Services.AddScoped<IEditarHistoriaClinica, EditarHistoriaClinicaCU>();
+
 
 
 

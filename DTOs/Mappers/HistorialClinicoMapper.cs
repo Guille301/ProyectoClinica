@@ -41,9 +41,23 @@ namespace DTOs.Mappers
         //}
 
 
+        public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit, int idPaciente)
+        {
+            return new HistorialesClinicos(
+            
+            edit.MotivoDeConsulta,
+            edit.EnfermedadActual,
+            edit.Antecedentes,
+            edit.HabitosPSB,
+            edit.ExamenFisico,
+            edit.Diagnostico,
+            edit.ExameneLaboratorio,
+            edit.Tratamiento
 
+                ) ;
+        }
 
-
+        
 
 
 

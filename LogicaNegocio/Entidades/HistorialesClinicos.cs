@@ -38,5 +38,17 @@ namespace LogicaNegocio.Entidades
             ExameneLaboratorio = exameneLaboratorio;
             Tratamiento = tratamiento;
         }
+
+        public HistorialesClinicos(string motivoDeConsulta, string enfermedadActual, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string exameneLaboratorio, string tratamiento)
+        {
+            MotivoDeConsulta = motivoDeConsulta;
+            EnfermedadActual = enfermedadActual;
+            Antecedentes = antecedentes;
+            HabitosPSB = habitosPSB;
+            ExamenFisico = examenFisico;
+            Diagnostico = diagnostico;
+            ExameneLaboratorio = exameneLaboratorio;
+            Tratamiento = tratamiento;
+        }
     }
 }

@@ -4,6 +4,7 @@ using LogicaAplicacion.CasosUso.CUPaciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUHistoriaClinica;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,14 +19,14 @@ namespace Proyecto_Clinica.Controllers
 
         private readonly IPacienteFicha _fichaPaciente;
         private readonly IAgregrarHistoriaClinica _agregarHistoria;
+        private readonly IEditarHistoriaClinica _editarHistoriaClinica;
 
 
-
-        public HistoriaClinicaController(IPacienteFicha PacienteFicha,IAgregrarHistoriaClinica AgrergarHistoria)
+        public HistoriaClinicaController(IPacienteFicha PacienteFicha,IAgregrarHistoriaClinica AgrergarHistoria, IEditarHistoriaClinica editarHistoriaClinica)
         {
             _fichaPaciente = PacienteFicha;
             _agregarHistoria = AgrergarHistoria;
-
+            _editarHistoriaClinica = editarHistoriaClinica;
 
         }
 
@@ -64,9 +65,29 @@ namespace Proyecto_Clinica.Controllers
 
         // PUT api/<HistoriaClinicaController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Update(int id, [FromBody] EditarHistoriaDTO Dto)
         {
+            try
+            {
+
+                _editarHistoriaClinica.Ejecutar(Dto,id);
+
+               
+
+                return NoContent(); // Código 204: Actualización exitosa sin contenido
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensaje = ex.Message });
+            }
         }
+
+
+
+
+
+
+
 
         // DELETE api/<HistoriaClinicaController>/5
         [HttpDelete("{id}")]

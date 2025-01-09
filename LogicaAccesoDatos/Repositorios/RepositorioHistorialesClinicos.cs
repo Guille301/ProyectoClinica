@@ -31,6 +31,38 @@ namespace LogicaAccesoDatos.Repositorios
             }
         }
 
+
+        public void Update(HistorialesClinicos cambiado)
+        {
+            var disOriginal = _db.HistorialesClinicos.Find(cambiado.Id);
+            try
+            {
+                disOriginal.MotivoDeConsulta = cambiado.MotivoDeConsulta;
+                disOriginal.EnfermedadActual = cambiado.EnfermedadActual;
+                disOriginal.Antecedentes = cambiado.Antecedentes;
+                disOriginal.HabitosPSB = cambiado.HabitosPSB;
+                disOriginal.ExamenFisico = cambiado.ExamenFisico;
+                disOriginal.Diagnostico = cambiado.Diagnostico;
+                disOriginal.ExameneLaboratorio = cambiado.ExameneLaboratorio;
+                disOriginal.Tratamiento = cambiado.Tratamiento;
+
+
+
+
+                _db.HistorialesClinicos.Update(disOriginal);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+
+
+
+
         public List<HistorialesClinicos> FindAll()
         {
             throw new NotImplementedException();
@@ -46,9 +78,6 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void Update(HistorialesClinicos obj)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
