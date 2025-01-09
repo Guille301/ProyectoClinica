@@ -62,6 +62,20 @@ namespace DTOs.Mappers
 
 
 
+
+        public static FichaPacienteDto FromPacienteFichaDto(Pacientes dto)
+        {
+            FichaPacienteDto paciente = new FichaPacienteDto();
+            paciente.NombreCompleto = dto.NombreCompleto;
+            paciente.NumeroDocumento = dto.NumeroDocumento;
+            paciente.Telefono = dto.Telefono;
+            paciente.Direccion = dto.Direccion;
+            return paciente;
+
+        }
+
+
+
         public static List<PacienteFiltroDto> FromDtoFiltrarPacientes(List<Pacientes> pacientes)
         {
             List<PacienteFiltroDto> ret = new List<PacienteFiltroDto>();

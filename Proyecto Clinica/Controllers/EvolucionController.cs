@@ -8,6 +8,8 @@ namespace Proyecto_Clinica.Controllers
     [ApiController]
     public class EvolucionController : ControllerBase
     {
+
+
         // GET: api/<EvolucionController>
         [HttpGet]
         public IEnumerable<string> Get()

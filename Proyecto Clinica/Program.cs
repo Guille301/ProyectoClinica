@@ -59,9 +59,10 @@ builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
 builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
 builder.Services.AddScoped<ICULogin, Login>();
 builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
-builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
+//builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
 builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
 builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();
+builder.Services.AddScoped<IPacienteFicha, PacienteFichaIdentificacion>();
 
 
 

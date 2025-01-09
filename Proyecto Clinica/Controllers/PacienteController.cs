@@ -18,6 +18,7 @@ namespace Proyecto_Clinica.Controllers
         private readonly ICUPacienteDetalle _cUPacienteDetalle;
         private readonly ICUPacienteFiltro _cUPacienteFiltro;
 
+
         public PacienteController(IAltaPaciente altaPaciente, ICUListarPaciente listarPaciente,   ICUPacienteDetalle cUPacienteDetalle, ICUPacienteFiltro cUPacienteFiltro)
         {
             _altaPaciente = altaPaciente;
