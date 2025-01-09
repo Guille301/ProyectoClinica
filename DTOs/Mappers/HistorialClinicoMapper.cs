@@ -1,4 +1,5 @@
 ﻿using DTOs.HistorialClinico;
+using DTOs.Paciente;
 using LogicaNegocio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,35 @@ namespace DTOs.Mappers
 
             return retorno; 
         }
+
+
+
+
+        public static ListarHistoriaClinicaDto FromListarHistorialDto(HistorialesClinicos dto)
+        {
+            ListarHistoriaClinicaDto histo = new ListarHistoriaClinicaDto();
+            histo.RazonDeConsulta = dto.RazonDeConsulta;
+            histo.Antecedentes = dto.Antecedentes;
+            histo.HabitosPSB = dto.HabitosPSB;
+            histo.ExamenFisico = dto.ExamenFisico;
+            histo.Diagnostico = dto.Diagnostico;
+            histo.ImagenLaboratorio = dto.ImagenLaboratorio;
+            histo.Tratamiento = dto.Tratamiento;
+
+
+            return histo;
+
+        }
+      
+
+
+
+
+
+
+
+
+
 
 
     }
