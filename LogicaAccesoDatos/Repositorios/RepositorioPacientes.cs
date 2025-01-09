@@ -118,6 +118,9 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-       
+        public object FindByCI(int pacienteId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

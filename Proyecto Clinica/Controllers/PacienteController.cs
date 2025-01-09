@@ -28,7 +28,7 @@ namespace Proyecto_Clinica.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult Create(PacienteAltaDto altaPacienteDto)
         {
             try

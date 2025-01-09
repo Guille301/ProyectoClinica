@@ -20,7 +20,7 @@ namespace DTOs.Mappers
         //    return retorno; 
         //}
 
-  
+
 
 
 
@@ -48,19 +48,26 @@ namespace DTOs.Mappers
 
 
 
-        //public static HistorialesClinicos FromDtoAltaEventoToEvento(DtoAltaHistorialClinico dto)
-        //{
-        //    HistorialesClinicos historia = new HistorialesClinicos();
-        //    historia.HabitosPSB = dto.HabitosPSB;
-        //    historia.RazonDeConsulta = dto.RazonDeConsulta;
-        //    historia.Antecedentes = dto.Antecedentes;
-        //    historia.Diagnostico = dto.Diagnostico;
-        //    historia.ExamenFisico = dto.ExamenFisico;
-        //    historia.ImagenLaboratorio = dto.ImagenLaboratorio;
-        //    historia.Tratamiento = dto.Tratamiento;
-           
-        //    return historia;
-        //}
+        public static HistorialesClinicos FromDtoToHistorialClinico(HistoriaAltaDto dto, int idPaciente)
+        {
+            return new HistorialesClinicos
+            {
+                PacienteId = idPaciente, 
+                MotivoDeConsulta = dto.MotivoDeConsulta,
+                EnfermedadActual = dto.EnfermedadActual,
+                Antecedentes = dto.Antecedentes,
+                HabitosPSB = dto.HabitosPSB,
+                ExamenFisico = dto.ExamenFisico,
+                Diagnostico = dto.Diagnostico,
+                ExameneLaboratorio = dto.ExameneLaboratorio,
+                Tratamiento = dto.Tratamiento
+            };
+        }
+
+
+
+
+
 
 
 

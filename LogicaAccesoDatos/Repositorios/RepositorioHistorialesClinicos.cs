@@ -10,9 +10,25 @@ namespace LogicaAccesoDatos.Repositorios
 {
     public class RepositorioHistorialesClinicos : IRepositorioHistorialesClinicos
     {
+
+        private ApplicationDbContext _db;
+        public RepositorioHistorialesClinicos(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+
         public void Add(HistorialesClinicos nuevo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _db.HistorialesClinicos.Add(nuevo);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el Historial clinico", ex);
+            }
         }
 
         public List<HistorialesClinicos> FindAll()
