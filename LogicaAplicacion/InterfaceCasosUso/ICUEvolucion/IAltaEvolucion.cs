@@ -13,7 +13,7 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     {
 
 
-        public void Ejecutar(EvolucionAltaDto EvolucionDTO);
+        public void Ejecutar(EvolucionAltaDto EvolucionDTO, int id);
 
 
 

@@ -1,10 +1,12 @@
 ﻿using DTOs.Evolucion;
 using DTOs.Mappers;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
+using LogicaNegocio.Entidades;
 using LogicaNegocio.InterfacesRepositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,22 +18,39 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
+        private readonly IRepositorioHistorialesClinicos _repoHistoria;
 
 
-        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo)
+        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo, IRepositorioHistorialesClinicos repoHi)
         {
             _repoEvolucion = repoEvo;
+            _repoHistoria = repoHi;
 
         }
 
-        public void Ejecutar(EvolucionAltaDto EvolucionDTO)
+      
+
+        public void Ejecutar(EvolucionAltaDto EvolucionDTO, int id)
         {
+          
+
             try
             {
                 
-                    LogicaNegocio.Entidades.Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
-                    _repoEvolucion.Add(ev);
+             Evolucion evoIdHistoria = _repoEvolucion.FindById(id);
                 
+
+                foreach (Evolucion a in _repoEvolucion.FindAll())
+                {
+
+                    if (a.IdHistoria == evoIdHistoria.IdHistoria)
+                    {
+                        LogicaNegocio.Entidades.Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
+                        _repoEvolucion.Add(ev);
+                    }
+
+                }
+
             }
             catch (Exception ex)
             {

@@ -9,5 +9,6 @@ namespace LogicaNegocio.InterfacesRepositorios
 {
     public interface IRepositorioEvoluciones:IRepositorioIRepositorio<Evolucion>
     {
+        
     }
 }

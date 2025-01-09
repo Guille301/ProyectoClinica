@@ -63,6 +63,8 @@ builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
 builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
 builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();
 builder.Services.AddScoped<IPacienteFicha, PacienteFichaIdentificacion>();
+builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
+
 
 
 
