@@ -15,14 +15,14 @@ namespace LogicaNegocio.Entidades
         public string Antecedentes { get; set; }
         public string HabitosPSB { get; set; }
         public string ExamenFisico { get; set; }
-        public string Diagnostico {  get; set; }
+        public string Diagnostico { get; set; }
         public string ImagenLaboratorio { get; set; }
         public string Tratamiento { get; set; }
-        
+
 
         public HistorialesClinicos()
         {
-            
+
         }
 
         public HistorialesClinicos(Pacientes paciente, string razonDeConsulta, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string imagenLaboratorio, string tratamiento)
@@ -35,10 +35,10 @@ namespace LogicaNegocio.Entidades
             Diagnostico = diagnostico;
             ImagenLaboratorio = imagenLaboratorio;
             Tratamiento = tratamiento;
-          
+
         }
 
 
-       
+
     }
 }

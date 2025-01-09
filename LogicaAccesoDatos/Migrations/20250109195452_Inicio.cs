@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LogicaAccesoDatos.Migrations
 {
     /// <inheritdoc />
-    public partial class MInicio : Migration
+    public partial class Inicio : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,7 +70,7 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Evolucion",
+                name: "Evoluciones",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -82,9 +82,9 @@ namespace LogicaAccesoDatos.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Evolucion", x => x.Id);
+                    table.PrimaryKey("PK_Evoluciones", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Evolucion_HistorialesClinicos_HistorialClinicoId",
+                        name: "FK_Evoluciones_HistorialesClinicos_HistorialClinicoId",
                         column: x => x.HistorialClinicoId,
                         principalTable: "HistorialesClinicos",
                         principalColumn: "Id",
@@ -92,8 +92,8 @@ namespace LogicaAccesoDatos.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Evolucion_HistorialClinicoId",
-                table: "Evolucion",
+                name: "IX_Evoluciones_HistorialClinicoId",
+                table: "Evoluciones",
                 column: "HistorialClinicoId");
 
             migrationBuilder.CreateIndex(
@@ -107,7 +107,7 @@ namespace LogicaAccesoDatos.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Evolucion");
+                name: "Evoluciones");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

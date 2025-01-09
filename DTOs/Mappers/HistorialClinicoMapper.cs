@@ -29,21 +29,22 @@ namespace DTOs.Mappers
 
 
 
-        public static ListarHistoriaClinicaDto FromListarHistorialDto(HistorialesClinicos dto)
-        {
-            ListarHistoriaClinicaDto histo = new ListarHistoriaClinicaDto();
-            histo.RazonDeConsulta = dto.RazonDeConsulta;
-            histo.Antecedentes = dto.Antecedentes;
-            histo.HabitosPSB = dto.HabitosPSB;
-            histo.ExamenFisico = dto.ExamenFisico;
-            histo.Diagnostico = dto.Diagnostico;
-            histo.ImagenLaboratorio = dto.ImagenLaboratorio;
-            histo.Tratamiento = dto.Tratamiento;
+
+        //public static ListarHistoriaClinicaDto FromListarHistorialDto(HistorialesClinicos dto)
+        //{
+        //    ListarHistoriaClinicaDto histo = new ListarHistoriaClinicaDto();
+        //    histo.RazonDeConsulta = dto.RazonDeConsulta;
+        //    histo.Antecedentes = dto.Antecedentes;
+        //    histo.HabitosPSB = dto.HabitosPSB;
+        //    histo.ExamenFisico = dto.ExamenFisico;
+        //    histo.Diagnostico = dto.Diagnostico;
+        //    histo.ImagenLaboratorio = dto.ImagenLaboratorio;
+        //    histo.Tratamiento = dto.Tratamiento;
 
 
-            return histo;
+        //    return histo;
 
-        }
+        //}
       
 
 
@@ -51,6 +52,21 @@ namespace DTOs.Mappers
 
 
 
+
+
+        public static HistorialesClinicos FromDtoAltaEventoToEvento(DtoAltaHistorialClinico dto)
+        {
+            HistorialesClinicos historia = new HistorialesClinicos();
+            historia.HabitosPSB = dto.HabitosPSB;
+            historia.RazonDeConsulta = dto.RazonDeConsulta;
+            historia.Antecedentes = dto.Antecedentes;
+            historia.Diagnostico = dto.Diagnostico;
+            historia.ExamenFisico = dto.ExamenFisico;
+            historia.ImagenLaboratorio = dto.ImagenLaboratorio;
+            historia.Tratamiento = dto.Tratamiento;
+           
+            return historia;
+        }
 
 
 

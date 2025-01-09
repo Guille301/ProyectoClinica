@@ -47,7 +47,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("HistorialClinicoId");
 
-                    b.ToTable("Evolucion");
+                    b.ToTable("Evoluciones");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.HistorialesClinicos", b =>
@@ -157,7 +157,7 @@ namespace LogicaAccesoDatos.Migrations
             modelBuilder.Entity("LogicaNegocio.Entidades.Evolucion", b =>
                 {
                     b.HasOne("LogicaNegocio.Entidades.HistorialesClinicos", "HistorialClinico")
-                        .WithMany("evolucion")
+                        .WithMany()
                         .HasForeignKey("HistorialClinicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -174,11 +174,6 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Paciente");
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.HistorialesClinicos", b =>
-                {
-                    b.Navigation("evolucion");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Pacientes", b =>

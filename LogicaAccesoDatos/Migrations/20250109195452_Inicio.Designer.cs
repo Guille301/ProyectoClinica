@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogicaAccesoDatos.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241227181515_MInicio")]
-    partial class MInicio
+    [Migration("20250109195452_Inicio")]
+    partial class Inicio
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace LogicaAccesoDatos.Migrations
 
                     b.HasIndex("HistorialClinicoId");
 
-                    b.ToTable("Evolucion");
+                    b.ToTable("Evoluciones");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.HistorialesClinicos", b =>
@@ -160,7 +160,7 @@ namespace LogicaAccesoDatos.Migrations
             modelBuilder.Entity("LogicaNegocio.Entidades.Evolucion", b =>
                 {
                     b.HasOne("LogicaNegocio.Entidades.HistorialesClinicos", "HistorialClinico")
-                        .WithMany("evolucion")
+                        .WithMany()
                         .HasForeignKey("HistorialClinicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -177,11 +177,6 @@ namespace LogicaAccesoDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Paciente");
-                });
-
-            modelBuilder.Entity("LogicaNegocio.Entidades.HistorialesClinicos", b =>
-                {
-                    b.Navigation("evolucion");
                 });
 
             modelBuilder.Entity("LogicaNegocio.Entidades.Pacientes", b =>
