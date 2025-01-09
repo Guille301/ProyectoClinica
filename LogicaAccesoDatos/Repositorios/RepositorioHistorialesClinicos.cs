@@ -70,7 +70,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public HistorialesClinicos FindById(int id)
         {
-            throw new NotImplementedException();
+            return _db.HistorialesClinicos.Find(id);
         }
 
         public void Remove(int id)

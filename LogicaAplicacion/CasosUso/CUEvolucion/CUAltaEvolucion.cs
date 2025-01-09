@@ -18,12 +18,14 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
-     
+        private readonly IRepositorioHistorialesClinicos _repoHistoriaClinica;
 
 
-        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo)
+
+        public CUAltaEvolucion(IRepositorioEvoluciones repoEvo, IRepositorioHistorialesClinicos repoHistoriaClinica)
         {
             _repoEvolucion = repoEvo;
+            _repoHistoriaClinica = repoHistoriaClinica; 
            
 
         }
@@ -37,19 +39,16 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
             try
             {
                 
-             Evolucion evoIdHistoria = _repoEvolucion.FindById(id);
+             HistorialesClinicos evoIdHistoria = _repoHistoriaClinica.FindById(id);
+               
                 
 
-                foreach (Evolucion a in _repoEvolucion.FindAll())
-                {
-
-                    if (a.IdHistoria == evoIdHistoria.IdHistoria)
-                    {
-                        LogicaNegocio.Entidades.Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
+                
+                    LogicaNegocio.Entidades.Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
                         _repoEvolucion.Add(ev);
-                    }
+                    
 
-                }
+                
 
             }
             catch (Exception ex)
