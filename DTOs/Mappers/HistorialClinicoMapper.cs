@@ -24,21 +24,38 @@ namespace DTOs.Mappers
 
 
 
-        //public static ListarHistoriaClinicaDto FromListarHistorialDto(HistorialesClinicos dto)
-        //{
-        //    ListarHistoriaClinicaDto histo = new ListarHistoriaClinicaDto();
-        //    histo.RazonDeConsulta = dto.RazonDeConsulta;
-        //    histo.Antecedentes = dto.Antecedentes;
-        //    histo.HabitosPSB = dto.HabitosPSB;
-        //    histo.ExamenFisico = dto.ExamenFisico;
-        //    histo.Diagnostico = dto.Diagnostico;
-        //    histo.ImagenLaboratorio = dto.ImagenLaboratorio;
-        //    histo.Tratamiento = dto.Tratamiento;
+        public static List<ListarHistoriaClinicaDto> FromListarHistorialDto(List<HistorialesClinicos> historia)
+        {
+            List<ListarHistoriaClinicaDto> ret = new List<ListarHistoriaClinicaDto>();
+
+            foreach (HistorialesClinicos h in historia) 
+            { 
+               ListarHistoriaClinicaDto histo = new ListarHistoriaClinicaDto();
+                histo.MotivoDeConsulta = h.MotivoDeConsulta;
+                histo.EnfermedadActual = h.EnfermedadActual;
+                histo.Antecedentes = h.Antecedentes;
+                histo.HabitosPSB = h.HabitosPSB;
+                histo.ExamenFisico = h.ExamenFisico;
+                histo.Diagnostico = h.Diagnostico;
+                histo.ExameneLaboratorio = h.ExameneLaboratorio;
+                histo.Tratamiento = h.Tratamiento;
+                ret.Add(histo);
+            }
+
+            
 
 
-        //    return histo;
+            return ret;
 
-        //}
+        }
+
+
+
+
+
+
+
+
 
 
         public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit, int idPaciente)

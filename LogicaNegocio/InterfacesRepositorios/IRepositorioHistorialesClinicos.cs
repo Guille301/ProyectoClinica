@@ -9,5 +9,6 @@ namespace LogicaNegocio.InterfacesRepositorios
 {
     public interface IRepositorioHistorialesClinicos:IRepositorioIRepositorio<HistorialesClinicos>
     {
+        List<HistorialesClinicos> ListarHistoriaClinica(int id);
     }
 }

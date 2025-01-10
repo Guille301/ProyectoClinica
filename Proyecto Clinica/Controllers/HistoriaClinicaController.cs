@@ -4,6 +4,7 @@ using LogicaAplicacion.CasosUso.CUPaciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUHistoriaClinica;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,13 +21,16 @@ namespace Proyecto_Clinica.Controllers
         private readonly IPacienteFicha _fichaPaciente;
         private readonly IAgregrarHistoriaClinica _agregarHistoria;
         private readonly IEditarHistoriaClinica _editarHistoriaClinica;
+        private readonly IListarHistoriaClinica _listarHistoriaClinica;
 
 
-        public HistoriaClinicaController(IPacienteFicha PacienteFicha,IAgregrarHistoriaClinica AgrergarHistoria, IEditarHistoriaClinica editarHistoriaClinica)
+        public HistoriaClinicaController(IPacienteFicha PacienteFicha,IAgregrarHistoriaClinica AgrergarHistoria, IEditarHistoriaClinica editarHistoriaClinica, IListarHistoriaClinica listarHistoriaClinica)
         {
             _fichaPaciente = PacienteFicha;
             _agregarHistoria = AgrergarHistoria;
             _editarHistoriaClinica = editarHistoriaClinica;
+            _listarHistoriaClinica = listarHistoriaClinica;
+
 
         }
 
@@ -79,6 +83,26 @@ namespace Proyecto_Clinica.Controllers
             catch (Exception ex)
             {
                 return BadRequest(new { mensaje = ex.Message });
+            }
+        }
+
+
+
+
+
+        [HttpGet("Listar HistoriaClinica")]
+
+        public IActionResult GetHistoriaClinica(int id)
+        {
+
+            try
+            {
+
+                return Ok(_listarHistoriaClinica.ListarHistoria(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
             }
         }
 

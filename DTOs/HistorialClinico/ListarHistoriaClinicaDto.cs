@@ -11,6 +11,7 @@ namespace DTOs.HistorialClinico
     {
 
 
+
         
         public string MotivoDeConsulta { get; set; }
         public string EnfermedadActual { get; set; }

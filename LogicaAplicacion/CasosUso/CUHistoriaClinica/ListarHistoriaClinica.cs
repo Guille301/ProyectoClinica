@@ -17,15 +17,44 @@ namespace LogicaAplicacion.CasosUso.CUHistoriaClinica
 
 
         private IRepositorioHistorialesClinicos _repoHistoria;
+        private IRepositorioPacientes _repoPacientes;
 
-        public ListarHistoriaClinica(IRepositorioHistorialesClinicos repo)
+        public ListarHistoriaClinica(IRepositorioHistorialesClinicos repo, IRepositorioPacientes repoP)
         {
             _repoHistoria = repo;
+            _repoPacientes = repoP;
         }
 
-        public ListarHistoriaClinicaDto FromListarHistorialDto(int id)
+        public List<ListarHistoriaClinicaDto> ListarHistoria(int id)
         {
-            throw new NotImplementedException();
+            List<ListarHistoriaClinicaDto> dtoListarHistorias = null;
+
+            try
+            {
+
+                Pacientes idPaciente = _repoPacientes.FindById(id);
+                HistorialesClinicos idPacienteHistoria = _repoHistoria.FindById(id);
+                if (idPaciente != null && idPacienteHistoria != null) 
+                {
+                    if (Convert.ToInt32(idPaciente) == Convert.ToInt32(idPacienteHistoria)) 
+                    {
+
+                         dtoListarHistorias = HistorialClinicoMapper.FromListarHistorialDto(_repoHistoria.ListarHistoriaClinica(id));
+                        
+
+                    }
+               
+                }
+                  return dtoListarHistorias;
+
+
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception($"Ocurrió un error al Listar la historia: {ex.Message}", ex);
+            }
+
+            
         }
 
         //public DTOs.HistorialClinico.ListarHistoriaClinicaDto FromListarHistorialDto(int id)
