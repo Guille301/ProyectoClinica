@@ -15,9 +15,9 @@ namespace DTOs.Mappers
     {
 
 
-        public static LogicaNegocio.Entidades.Evolucion FromEvolucioAltaDto(EvolucionAltaDto PA)
+        public static LogicaNegocio.Entidades.Evolucion FromEvolucioAltaDto(EvolucionAltaDto PA, HistorialesClinicos ha)
         {
-            return new LogicaNegocio.Entidades.Evolucion(PA.IdHistoria,PA.fecha,PA.DescripcionEvolucion);
+            return new LogicaNegocio.Entidades.Evolucion(PA.IdHistoria,PA.fecha,PA.DescripcionEvolucion,ha);
 
         }
 

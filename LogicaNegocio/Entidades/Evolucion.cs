@@ -32,5 +32,10 @@ namespace LogicaNegocio.Entidades
             this.fecha = fecha;
             DescripcionEvolucion = descripcionEvolucion;
         }
+
+        public Evolucion(int idHistoria, DateTime fecha, string descripcionEvolucion, HistorialesClinicos historialClinico) : this(idHistoria, fecha, descripcionEvolucion)
+        {
+            HistorialClinico = historialClinico;
+        }
     }
 }

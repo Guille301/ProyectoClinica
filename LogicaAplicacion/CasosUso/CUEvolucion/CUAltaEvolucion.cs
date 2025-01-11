@@ -44,8 +44,8 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
                 
 
                 
-                    LogicaNegocio.Entidades.Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
-                        _repoEvolucion.Add(ev);
+                   Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO, evoIdHistoria);
+                    _repoEvolucion.Add(ev);
                     
 
                 
