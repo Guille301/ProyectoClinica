@@ -8,6 +8,8 @@ namespace LogicaNegocio.Entidades
 {
     public class HistorialesClinicos
     {
+        private int v;
+
         public int Id { get; set; }
         public int PacienteId { get; set; }
         public Pacientes Paciente { get; set; }
@@ -39,8 +41,9 @@ namespace LogicaNegocio.Entidades
             Tratamiento = tratamiento;
         }
 
-        public HistorialesClinicos(string motivoDeConsulta, string enfermedadActual, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string exameneLaboratorio, string tratamiento)
+        public HistorialesClinicos(int idpaciente,string motivoDeConsulta, string enfermedadActual, string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string exameneLaboratorio, string tratamiento)
         {
+            PacienteId = idpaciente;
             MotivoDeConsulta = motivoDeConsulta;
             EnfermedadActual = enfermedadActual;
             Antecedentes = antecedentes;
@@ -50,5 +53,7 @@ namespace LogicaNegocio.Entidades
             ExameneLaboratorio = exameneLaboratorio;
             Tratamiento = tratamiento;
         }
+
+      
     }
 }

@@ -44,7 +44,8 @@ namespace DTOs.Mappers
         public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit, int idPaciente)
         {
             return new HistorialesClinicos(
-            
+
+            edit.id = idPaciente,
             edit.MotivoDeConsulta,
             edit.EnfermedadActual,
             edit.Antecedentes,

@@ -34,7 +34,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Update(HistorialesClinicos cambiado)
         {
-            var disOriginal = _db.HistorialesClinicos.Find(cambiado.Id);
+            var disOriginal = _db.HistorialesClinicos.Find(cambiado.PacienteId);
             try
             {
                 disOriginal.MotivoDeConsulta = cambiado.MotivoDeConsulta;
