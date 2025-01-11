@@ -65,7 +65,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public List<HistorialesClinicos> FindAll()
         {
-            throw new NotImplementedException();
+            return _db.HistorialesClinicos.ToList();
         }
 
         public HistorialesClinicos FindById(int id)
@@ -78,6 +78,9 @@ namespace LogicaAccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-       
+        public List<HistorialesClinicos> ListarHistoriaClinica(int id)
+        {
+            return _db.HistorialesClinicos.Where(h => h.PacienteId == id).ToList();
+        }
     }
 }

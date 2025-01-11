@@ -12,7 +12,7 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUHistoriaClinica
     public interface IListarHistoriaClinica
     {
 
-        ListarHistoriaClinicaDto FromListarHistorialDto(int id);
+        List<ListarHistoriaClinicaDto> ListarHistoria(int id);
 
         
 
