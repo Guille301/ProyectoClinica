@@ -41,16 +41,16 @@ namespace LogicaAccesoDatos.Repositorios
 
 
 
-        public List<Pacientes> FiltroPacientes(string ci, string nombre)
+        public List<Pacientes> FiltroPacientes(string? ci, string? nombre)
         {
             try
             {
                 var query = _db.Pacientes.AsQueryable();
 
                 // Filtro por documento
-                if (ci != null)
+                if (!string.IsNullOrWhiteSpace(ci))
                 {
-                    query = query.Where(e => e.NumeroDocumento == ci);
+                    query = query.Where(e => e.NumeroDocumento.StartsWith(ci));
                 }
 
                 // Filtro por nombre completo
@@ -58,6 +58,9 @@ namespace LogicaAccesoDatos.Repositorios
                 {
                     query = query.Where(e => e.NombreCompleto.ToLower().Contains(nombre.ToLower()));
                 }
+
+
+              
 
                 return query.ToList();
             }
@@ -70,9 +73,9 @@ namespace LogicaAccesoDatos.Repositorios
 
 
 
-        public Pacientes FindDetalle(int id)
+        public Pacientes FindDetalle(string ci)
         {
-            return _db.Pacientes.Where(p => p.Id == id).FirstOrDefault();
+            return _db.Pacientes.Where(p => p.NumeroDocumento == ci).FirstOrDefault();
         }
 
 

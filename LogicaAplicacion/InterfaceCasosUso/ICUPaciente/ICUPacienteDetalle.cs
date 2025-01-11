@@ -9,6 +9,6 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
 {
     public  interface ICUPacienteDetalle
     {
-        PacienteDetalleDto obtenerPacienteDetalle(int id);
+        PacienteDetalleDto obtenerPacienteDetalle(string ci);
     }
 }

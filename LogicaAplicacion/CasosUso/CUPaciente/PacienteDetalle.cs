@@ -19,9 +19,9 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
         {
             _repopPacientes = repo;
         }
-        public PacienteDetalleDto obtenerPacienteDetalle(int id)
+        public PacienteDetalleDto obtenerPacienteDetalle(string ci)
         {
-            Pacientes pacienteEncontrado = _repopPacientes.FindDetalle(id);
+            Pacientes pacienteEncontrado = _repopPacientes.FindDetalle(ci);
 
             PacienteDetalleDto dto = PacienteMappers.FromPacienteDetalleToDtoPacienteDetalle(pacienteEncontrado);
             return dto;

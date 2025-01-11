@@ -14,7 +14,7 @@ namespace LogicaNegocio.InterfacesRepositorios
 
         List<Pacientes> FiltroPacientes(string? ci , string? nombre);
 
-        public Pacientes FindDetalle(int id);
+        public Pacientes FindDetalle(string ci);
 
         public Pacientes FindByCI(string ci);
         

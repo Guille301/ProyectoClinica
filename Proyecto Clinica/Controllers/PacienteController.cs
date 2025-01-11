@@ -89,12 +89,12 @@ namespace Proyecto_Clinica.Controllers
 
         [HttpGet("Detalle Paciente")]
 
-        public IActionResult ObtenerPacienteDetalle(int id)
+        public IActionResult ObtenerPacienteDetalle(string ci)
         {
 
             try
             {
-                PacienteDetalleDto dto = _cUPacienteDetalle.obtenerPacienteDetalle(id);
+                PacienteDetalleDto dto = _cUPacienteDetalle.obtenerPacienteDetalle(ci);
                 return Ok(dto);
             }
             catch (Exception e)
