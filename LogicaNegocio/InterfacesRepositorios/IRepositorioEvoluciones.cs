@@ -9,6 +9,6 @@ namespace LogicaNegocio.InterfacesRepositorios
 {
     public interface IRepositorioEvoluciones:IRepositorioIRepositorio<Evolucion>
     {
-        
+        List<Evolucion> ListarEvolucionesConFiltro(int? id);
     }
 }

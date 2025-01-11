@@ -9,6 +9,6 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUEvolucion
 {
     public interface ICUListarEvoluciones
     {
-        public List<EvolucionListaDto> ListarEvoluciones();
+        public List<EvolucionListaDto> ListarEvoluciones(int id);
     }
 }

@@ -44,13 +44,13 @@ namespace Proyecto_Clinica.Controllers
 
         [HttpGet("Listar Evoluciones")]
 
-        public IActionResult GetEvoluciones()
+        public IActionResult GetEvoluciones(int id)
         {
 
             try
             {
 
-                return Ok(_cUListarEvoluciones.ListarEvoluciones());
+                return Ok(_cUListarEvoluciones.ListarEvoluciones(id));
             }
             catch (Exception ex)
             {

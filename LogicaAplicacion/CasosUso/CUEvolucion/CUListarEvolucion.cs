@@ -2,6 +2,7 @@
 using DTOs.Mappers;
 using DTOs.Paciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUEvolucion;
+using LogicaNegocio.Entidades;
 using LogicaNegocio.InterfacesRepositorios;
 using System;
 using System.Collections.Generic;
@@ -15,19 +16,34 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
     {
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
+        
 
 
 
         public CUListarEvolucion(IRepositorioEvoluciones repoEvo)
         {
             _repoEvolucion = repoEvo;
+           
 
 
         }
-        public List<EvolucionListaDto> ListarEvoluciones()
+        public List<EvolucionListaDto> ListarEvoluciones(int id)
         {
-            List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.FindAll());
-            return dtoListarEvoluciones;
+
+            
+            try
+            {
+               
+                List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(id));
+                return dtoListarEvoluciones;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Ocurrió un error al intentar hacer la evolucion: {ex.Message}", ex);
+            }
+
+   
         }
     }
 }

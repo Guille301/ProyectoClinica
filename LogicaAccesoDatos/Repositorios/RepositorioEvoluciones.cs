@@ -40,6 +40,12 @@ namespace LogicaAccesoDatos.Repositorios
             return _db.Evoluciones.Find(id);
         }
 
+        public List<Evolucion> ListarEvolucionesConFiltro(int? id)
+        {
+            var retorno = _db.Evoluciones.Where(e=>e.IdHistoria == id).ToList();
+            return retorno;
+        }
+
         public void Remove(int id)
         {
             throw new NotImplementedException();
