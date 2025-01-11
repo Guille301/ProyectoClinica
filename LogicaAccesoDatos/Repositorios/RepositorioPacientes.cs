@@ -103,10 +103,10 @@ namespace LogicaAccesoDatos.Repositorios
 
         public Pacientes FindById(int id)
         {
-            throw new NotImplementedException();
+            return _db.Pacientes.Find(id);
         }
 
-      
+
 
         public void Remove(int id)
         {

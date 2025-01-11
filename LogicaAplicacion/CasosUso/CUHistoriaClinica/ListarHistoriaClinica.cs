@@ -33,16 +33,15 @@ namespace LogicaAplicacion.CasosUso.CUHistoriaClinica
             {
 
                 Pacientes idPaciente = _repoPacientes.FindById(id);
-                HistorialesClinicos idPacienteHistoria = _repoHistoria.FindById(id);
+                HistorialesClinicos idPacienteHistoria = _repoHistoria.FindByPacienteId(idPaciente.Id);
                 if (idPaciente != null && idPacienteHistoria != null) 
                 {
-                    if (Convert.ToInt32(idPaciente) == Convert.ToInt32(idPacienteHistoria)) 
-                    {
+                    
 
                          dtoListarHistorias = HistorialClinicoMapper.FromListarHistorialDto(_repoHistoria.ListarHistoriaClinica(id));
                         
 
-                    }
+                    
                
                 }
                   return dtoListarHistorias;

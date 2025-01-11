@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.InterfacesRepositorios;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,5 +83,20 @@ namespace LogicaAccesoDatos.Repositorios
         {
             return _db.HistorialesClinicos.Where(h => h.PacienteId == id).ToList();
         }
+
+
+        public HistorialesClinicos FindByPacienteId(int pacienteId)
+        {
+            return _db.HistorialesClinicos.Include(h => h.Paciente).FirstOrDefault(h => h.PacienteId == pacienteId);
+        }
+
+
+
+
+
+
+
+
+
     }
 }

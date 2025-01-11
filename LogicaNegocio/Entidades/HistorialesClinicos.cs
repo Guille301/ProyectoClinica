@@ -8,7 +8,6 @@ namespace LogicaNegocio.Entidades
 {
     public class HistorialesClinicos
     {
-        private int v;
 
         public int Id { get; set; }
         public int PacienteId { get; set; }
