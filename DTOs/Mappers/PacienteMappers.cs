@@ -28,6 +28,8 @@ namespace DTOs.Mappers
                 listaPacienteDto.NombreCompleto = P.NombreCompleto;
                 listaPacienteDto.NumeroDocumento = P.NumeroDocumento;
                 listaPacienteDto.Edad = P.FechaNacimiento;
+                listaPacienteDto.id = P.Id;
+
                 ret.Add(listaPacienteDto);
             }
             return ret;
@@ -39,6 +41,7 @@ namespace DTOs.Mappers
             paciente.NombreCompleto = dto.NombreCompleto;
             paciente.NumeroDocumento = dto.NumeroDocumento;
             paciente.Edad = dto.FechaNacimiento;
+            paciente.id = dto.Id;
             return paciente;
 
         }

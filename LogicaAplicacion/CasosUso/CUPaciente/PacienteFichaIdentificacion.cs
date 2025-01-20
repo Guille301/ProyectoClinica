@@ -22,9 +22,9 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
                 _repopPacientes = repo;
             }
 
-        public FichaPacienteDto obtenerFichaPaciente(string ci)
+        public FichaPacienteDto obtenerFichaPaciente(int id)
         {
-            Pacientes pacienteEncontrado = _repopPacientes.FindDetalle(ci);
+            Pacientes pacienteEncontrado = _repopPacientes.FindById(id);
 
             FichaPacienteDto dto = PacienteMappers.FromPacienteFichaDto(pacienteEncontrado);
             return dto;

@@ -10,7 +10,7 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     public interface IPacienteFicha
     {
 
-        FichaPacienteDto obtenerFichaPaciente(string ci);
+        FichaPacienteDto obtenerFichaPaciente(int id);
 
 
     }

@@ -37,12 +37,12 @@ namespace Proyecto_Clinica.Controllers
 
         [HttpGet("Ficha identificacion")]
 
-        public IActionResult ObtenerFichaPaciente(string ci)
+        public IActionResult ObtenerFichaPaciente(int id)
         {
 
             try
             {
-                FichaPacienteDto dto = _fichaPaciente.obtenerFichaPaciente(ci);
+                FichaPacienteDto dto = _fichaPaciente.obtenerFichaPaciente(id);
                 return Ok(dto);
             }
             catch (Exception e)
