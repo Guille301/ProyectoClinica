@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Inter", serif;
+}
+.primary-button{
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(50, 48, 48) 100%);
+  color: white;
+}
+.primary-button, .secundary-button {
+  font-size: 1.2rem;
+  padding: 1.2rem;
+  border: none;
+  padding-inline: 3rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.secundary-button {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transition: all 0.3s;
+}
+.secundary-button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/* LOGIN SCREEN */
+
+.section-login {
+  margin: 0 auto;
+  padding: 100px;
+}
+.logo-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 20px;
+}
+.logo {
+  background-color: black;
+  width: 162px;
+  height: 162px;
+  border-radius: 100%;
+}
+.logo-container h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-inline: 25%;
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.form-container form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.container-search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.input-container label {
+  font-weight: 400;
+}
+.input-container input {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.246);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+.input-container input:focus {
+  outline: 1px solid rgba(0, 42, 255, 0.292);
+}
+.login-button {
+  margin-inline: 35%;
+}
+
+/* DASHBOARD SCREEN */
+
+.dashboard-container {
+  padding: 100px;
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.button-container {
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(50, 48, 48) 100%);
+  padding: 1.2rem;
+  padding-inline: 1.3rem;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  cursor: pointer;
+}
+.input-dashboard {
+  width: 25rem;
+}
+.search-container input {
+  width: 100%;
+}
+.table-container {
+  margin-top: 4rem;
+}
+.header-table {
+  display: flex;
+  padding-inline: 1rem;
+}
+.header-table p {
+  font-weight: 500;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+.add-container button {
+  width: 100%;
+  padding-inline: 2rem;
+  margin: 0;
+}
+.body-table {
+  margin-top: 2rem;
+}
+.row-table {
+  display: flex;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 1rem;
+}
+.row-table:hover {
+  scale: 1.02;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+.row-table:hover .off {
+  opacity: 1;
+}
+.row-table p {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+a {
+  text-align: end;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+p,
+a {
+  width: 25%;
+}
+.off {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+/* CLINICA SCREEN */
+
+.history-section {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.header-history {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.back-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.back-container a {
+  color: black;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.back-container:hover a {
+  opacity: 1;
+}
+.header-history p {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: end;
+}
+
+.datePatient-container {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.datePatient-container h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+ul {
+  list-style: none;
+}
+.datePatient-container ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.date span {
+  font-weight: 600;
+}
+hr {
+  width: 10%;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: -1.5rem;
+}
+.history-container {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.history-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.history-container h4 {
+  font-size: 1.2rem;
+}
+.history-container h4 span {
+  font-weight: 400;
+}
+.buttons-container {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+}
+.button-clinical {
+  margin-inline: 0px;
+}

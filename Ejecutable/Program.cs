@@ -6,8 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        string rutaProyecto = @"C:\Users\Lenovo\Desktop\ProyectoClinica\ClinicaMvc";  // Cambia esta ruta a la de tu proyecto MVC
-        string url = "http://localhost:5062/Home/Index"; // Cambia a la URL de tu proyecto MVC
+        string rutaProyecto = @"C:\Users\juanp\OneDrive\Desktop\ProyectoClinica\ClinicaMvc";  // Cambia esta ruta a la de tu proyecto MVC
+        string url = "http://localhost:5062/Login/Login"; // Cambia a la URL de tu proyecto MVC
 
         try
         {

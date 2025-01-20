@@ -1,0 +1,48 @@
+﻿@model DTOs.Usuario.DtoLogin
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <section class="section-login">
+        <div class="logo-container">
+            <div class="logo"></div>
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <article class="form-container">
+            <form asp-action="Login" method="post">
+                @Html.AntiForgeryToken()
+                <div class="input-container">
+                    <label for="Email">Nombre de usuario</label>
+                    <input asp-for="Email" type="text" id="Email" placeholder="Escribe tu nombre de usuario" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="input-container">
+                    <label for="Password">Contraseña</label>
+                    <input asp-for="Password" type="password" id="Password" placeholder="Escribe tu contraseña" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <button type="submit" class="login-button primary-button">Iniciar Sesión</button>
+            </form>
+        </article>
+    </section>
+
+    <script src="~/js/login.js"></script>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>
