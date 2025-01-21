@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LogicaAccesoDatos.Migrations
 {
     /// <inheritdoc />
-    public partial class inicio : Migration
+    public partial class Minicio : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,14 +15,14 @@ namespace LogicaAccesoDatos.Migrations
                 name: "Pacientes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NombreCompleto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumeroDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Patologia = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NombreCompleto = table.Column<string>(type: "TEXT", nullable: false),
+                    NumeroDocumento = table.Column<string>(type: "TEXT", nullable: false),
+                    FechaNacimiento = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Telefono = table.Column<string>(type: "TEXT", nullable: false),
+                    Direccion = table.Column<string>(type: "TEXT", nullable: false),
+                    Patologia = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,10 +33,10 @@ namespace LogicaAccesoDatos.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,17 +47,17 @@ namespace LogicaAccesoDatos.Migrations
                 name: "HistorialesClinicos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PacienteId = table.Column<int>(type: "int", nullable: false),
-                    MotivoDeConsulta = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EnfermedadActual = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Antecedentes = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HabitosPSB = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExamenFisico = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Diagnostico = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExameneLaboratorio = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tratamiento = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PacienteId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MotivoDeConsulta = table.Column<string>(type: "TEXT", nullable: false),
+                    EnfermedadActual = table.Column<string>(type: "TEXT", nullable: false),
+                    Antecedentes = table.Column<string>(type: "TEXT", nullable: false),
+                    HabitosPSB = table.Column<string>(type: "TEXT", nullable: false),
+                    ExamenFisico = table.Column<string>(type: "TEXT", nullable: false),
+                    Diagnostico = table.Column<string>(type: "TEXT", nullable: false),
+                    ExameneLaboratorio = table.Column<string>(type: "TEXT", nullable: false),
+                    Tratamiento = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,12 +74,12 @@ namespace LogicaAccesoDatos.Migrations
                 name: "Evoluciones",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdHistoria = table.Column<int>(type: "int", nullable: false),
-                    fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DescripcionEvolucion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HistorialClinicoId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IdHistoria = table.Column<int>(type: "INTEGER", nullable: false),
+                    fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DescripcionEvolucion = table.Column<string>(type: "TEXT", nullable: false),
+                    HistorialClinicoId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

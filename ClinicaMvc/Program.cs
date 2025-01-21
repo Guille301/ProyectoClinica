@@ -51,12 +51,14 @@ namespace webApp
 
 
 
+            ///*DbContext SQLSERVER*/
+            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionClinica")));
 
 
-
-            /*DbContext*/
+            /*DbContext SQLITE*/
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionClinica")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConexionClinica")));
 
 
 

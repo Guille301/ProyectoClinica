@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaAccesoDatos", "Logica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTOs", "DTOs\DTOs.csproj", "{578EAF7A-3ABA-4D0F-BE5E-C70D779697ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicaMvc", "ClinicaMvc\ClinicaMvc.csproj", "{30A4D65F-0022-494A-89E7-66B6CD9615C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClinicaMvc", "ClinicaMvc\ClinicaMvc.csproj", "{30A4D65F-0022-494A-89E7-66B6CD9615C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejecutable", "Ejecutable\Ejecutable.csproj", "{A9BEB2BD-58F5-4041-9AFD-C426F96B7760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ejecutable", "Ejecutable\Ejecutable.csproj", "{A9BEB2BD-58F5-4041-9AFD-C426F96B7760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
