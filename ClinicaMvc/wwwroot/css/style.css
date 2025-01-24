@@ -1,3 +1,9 @@
+:root {
+    --border-ra-input: 5px;
+    --border-ra-btn: 30px;
+    --bg-primary-btn: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(50, 48, 48) 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +12,7 @@
   font-family: "Inter", serif;
 }
 .primary-button{
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(50, 48, 48) 100%);
+  background: var(--bg-primary-btn);
   color: white;
 }
 .primary-button, .secundary-button {
@@ -14,7 +20,7 @@
   padding: 1.2rem;
   border: none;
   padding-inline: 3rem;
-  border-radius: 30px;
+  border-radius: var(--border-ra-btn);
   cursor: pointer;
 }
 .secundary-button {
@@ -32,8 +38,7 @@
 /* LOGIN SCREEN */
 
 .section-login {
-  margin: 0 auto;
-  padding: 100px;
+ 
 }
 .logo-container {
   width: 100%;
@@ -57,9 +62,9 @@
 .form-container {
   display: flex;
   justify-content: center;
-  margin-inline: 25%;
+  margin-inline: 20%;
   padding: 2rem;
-  border-radius: 25px;
+  border-radius: var(--border-ra-input);
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 .form-container form {
@@ -84,21 +89,25 @@
 }
 .input-container input {
   padding: 0.8rem;
-  border-radius: 5px;
+  border-radius: var(--border-ra-input);
   border: 1px solid rgba(0, 0, 0, 0.246);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 .input-container input:focus {
   outline: 1px solid rgba(0, 42, 255, 0.292);
 }
-.login-button {
-  margin-inline: 35%;
+.btn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.login-btn{
+    max-width: 15rem;
+}
 /* DASHBOARD SCREEN */
-
 .dashboard-container {
-  padding: 100px;
+    padding: 100px;
 }
 .header-container {
   width: 100%;
@@ -115,7 +124,7 @@
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(50, 48, 48) 100%);
   padding: 1.2rem;
   padding-inline: 1.3rem;
-  border-radius: 30px;
+  border-radius: var(--border-ra-btn);
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -178,14 +187,26 @@ a {
   opacity: 0;
   transition: all 0.3s;
 }
+.btn-search {
+    border-radius: var(--border-ra-btn);
+    background: var(--bg-primary-btn);
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+}
+.btn-search:hover {
+    transform: scale(1.2);
+}
+.search-btn-container {
+    margin-top: 30px;
 
+}
 /* CLINICA SCREEN */
-
 .history-section {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 .header-history {
   display: flex;

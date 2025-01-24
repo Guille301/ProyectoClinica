@@ -1,8 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<DTOs.Paciente.PacienteListaDto>
+
+@{
+    ViewData["Title"] = "Clínica Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <section class="dashboard-container">
+        <div class="header-container">
+            <div class="input-container input-dashboard">
+                <label for="nameSearch">Nombre</label>
+                <input type="text" placeholder="Buscar por nombre..." id="nameSearch" />
+            </div>
+            <div class="input-container input-dashboard">
+                <label for="documentSearch">Número de documento</label>
+                <input type="text" placeholder="Buscar por documento..." id="documentSearch" />
+            </div>
+            <div class="search-btn-container">
+                <span class="btn-search">Buscar</span>
+            </div>
+        </div>
+        <article class="table-container">
+            <div class="header-table">
+                <p>Nombre Completo</p>
+                <p>Número Documento</p>
+                <p>ID</p>
+                <p>Edad</p>
+            </div>
+            <div class="body-table">
+         
+            </div>
+        </article>
+    </section>
+</body>
+</html>
