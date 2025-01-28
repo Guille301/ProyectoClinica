@@ -1,4 +1,5 @@
 using ClinicaMvc.Models;
+using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +7,15 @@ namespace ClinicaMvc.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        ICUListarPaciente _CUListarPaciente;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ICUListarPaciente cuListarPaciente)
         {
-            _logger = logger;
+            _CUListarPaciente = cuListarPaciente;
         }
-
         public IActionResult Index()
         {
-            return View();
+            return View(_CUListarPaciente.ListarPacientes());
         }
 
         public IActionResult Privacy()

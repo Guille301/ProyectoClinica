@@ -36,9 +36,22 @@
                 <p>ID</p>
                 <p>Edad</p>
             </div>
-            <div class="body-table">
-         
-            </div>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var paciente in Model)
+                {
+                    <div class="table-row">
+                        <p>@paciente.NombreCompleto</p>
+                        <p>@paciente.NumeroDocumento</p>
+                        <p>@paciente.Edad</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <h2 class="error-msj">No hay pacientes disponibles</h2>
+            }
+            @*  <li>@Html.ActionLink("GoLogin", "Login", "Login")</li> *@
         </article>
     </section>
 </body>
