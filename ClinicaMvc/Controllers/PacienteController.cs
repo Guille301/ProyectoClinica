@@ -47,42 +47,7 @@ namespace ClinicaMvc.Controllers
         }
 
 
-        [HttpGet("Todos los Pacientes")]
-
-        public IActionResult GetPacientes()
-        {
-
-            try
-            {
-
-                return Ok(_ListarPaciente.ListarPacientes());
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
-            }
-        }
-
-
-
-
-
-        [HttpGet("Paciente Filtro")]
-
-        public IActionResult filtrarPacientes([FromQuery] string? ci, [FromQuery] string? nombre)
-        {
-
-            try
-            {
-                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
-                return Ok(filtro);
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500);
-            }
-        }
-
+     
 
 
 
