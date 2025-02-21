@@ -38,25 +38,42 @@ namespace ClinicaMvc.Controllers
             try
             {
                 _altaPaciente.Ejecutar(altaPacienteDto);
-                return Ok();
+                TempData["Mensaje"] = "Disciplina creada correctamente";
+                return RedirectToAction("Index", "Home");
+                
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { mensaje = "Ocurrió un error inesperado: " + ex.Message });
+                ViewBag.Error = ex.Message;
+                return View();
             }
         }
 
 
-     
+
+
+
+
+        public IActionResult filtrarPacientes(string? ci, string? nombre)
+        {
+
+            try
+            {
+                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
+                return View(filtro);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+                return View();
+            }
+        }
 
 
 
 
 
 
-
-
-        [HttpGet("DetallePaciente/{id}")]
 
 
         public IActionResult ObtenerPacienteDetalle(int id)
@@ -67,9 +84,10 @@ namespace ClinicaMvc.Controllers
                 PacienteDetalleDto dto = _cUPacienteDetalle.obtenerPacienteDetalle(id);
                 return View(dto);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                ViewBag.Error = ex.Message;
+                return View();
             }
         }
 
