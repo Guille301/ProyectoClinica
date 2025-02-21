@@ -44,6 +44,8 @@
                         <p>@paciente.NombreCompleto</p>
                         <p>@paciente.NumeroDocumento</p>
                         <p>@paciente.Edad</p>
+                        <p>@Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })</p>
+                        <p>@Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })</p>
                     </div>
                 }
             }
