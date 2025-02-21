@@ -1,6 +1,7 @@
 ﻿using DTOs.Mappers;
 using DTOs.Paciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
+using LogicaNegocio.Exepciones.Paciente;
 using LogicaNegocio.InterfacesRepositorios;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
                 }
                 else
                 {
-                    throw new Exception("Ese número de documento ya existe");
+                    throw new CIRepetidoException("Ese número de documento ya existe");
                 }
             }
             catch (Exception ex)
