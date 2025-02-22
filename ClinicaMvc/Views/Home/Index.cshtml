@@ -17,18 +17,22 @@
 <body>
     <section class="dashboard-container">
         <div class="header-container">
-            <div class="input-container input-dashboard">
-                <label for="nameSearch">Nombre</label>
-                <input type="text" placeholder="Buscar por nombre..." id="nameSearch" />
-            </div>
-            <div class="input-container input-dashboard">
-                <label for="documentSearch">Número de documento</label>
-                <input type="text" placeholder="Buscar por documento..." id="documentSearch" />
-            </div>
-            <div class="search-btn-container">
-                <span class="btn-search">Buscar</span>
-            </div>
+            <form method="get" action="@Url.Action("Index", "Home")">
+                <div class="input-container input-dashboard">
+                    <label for="nameSearch">Nombre</label>
+                    <input type="text" name="nombre" placeholder="Buscar por nombre..." id="nameSearch" />
+                </div>
+                <div class="input-container input-dashboard">
+                    <label for="documentSearch">Número de documento</label>
+                    <input type="text" name="ci" placeholder="Buscar por documento..." id="documentSearch" />
+                </div>
+                <div class="search-btn-container">
+                    <button type="submit" class="btn-search">Buscar</button>
+                </div>
+            </form>
+
         </div>
+
         <article class="table-container">
             <div class="header-table">
                 <p>Nombre Completo</p>
@@ -53,7 +57,6 @@
             {
                 <h2 class="error-msj">No hay pacientes disponibles</h2>
             }
-            @*  <li>@Html.ActionLink("GoLogin", "Login", "Login")</li> *@
         </article>
     </section>
 </body>

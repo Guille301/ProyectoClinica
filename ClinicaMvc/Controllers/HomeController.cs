@@ -3,30 +3,47 @@ using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ClinicaMvc.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly ICUListarPaciente _CUListarPaciente;
+    private readonly ICUPacienteFiltro _cUPacienteFiltro;
+
+    public HomeController(ICUListarPaciente cuListarPaciente, ICUPacienteFiltro cUPacienteFiltro)
     {
-        ICUListarPaciente _CUListarPaciente;
+        _CUListarPaciente = cuListarPaciente;
+        _cUPacienteFiltro = cUPacienteFiltro;
+    }
 
-        public HomeController(ICUListarPaciente cuListarPaciente)
+    public IActionResult Index(string? ci, string? nombre)
+    {
+        try
         {
-            _CUListarPaciente = cuListarPaciente;
-        }
-        public IActionResult Index()
-        {
-            return View(_CUListarPaciente.ListarPacientes());
-        }
+            // Si se reciben parámetros de búsqueda, aplicar el filtro
+            if (!string.IsNullOrEmpty(ci) || !string.IsNullOrEmpty(nombre))
+            {
+                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
+                return View(filtro);  // Devuelve la vista con la lista filtrada
+            }
 
-        public IActionResult Privacy()
+            // Si no hay parámetros de búsqueda, simplemente se muestran todos los pacientes
+            var pacientes = _CUListarPaciente.ListarPacientes();
+            return View(pacientes);
+        }
+        catch (Exception ex)
         {
+            ViewBag.Error = ex.Message;
             return View();
         }
+    }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

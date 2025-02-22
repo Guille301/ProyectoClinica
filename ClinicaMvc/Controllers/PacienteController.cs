@@ -54,20 +54,20 @@ namespace ClinicaMvc.Controllers
 
 
 
-        public IActionResult filtrarPacientes(string? ci, string? nombre)
-        {
+        //public IActionResult filtrarPacientes(string? ci, string? nombre)
+        //{
 
-            try
-            {
-                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
-                return View(filtro);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = ex.Message;
-                return View();
-            }
-        }
+        //    try
+        //    {
+        //        var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
+        //        return View(filtro);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ViewBag.Error = ex.Message;
+        //        return View();
+        //    }
+        //}
 
 
 
