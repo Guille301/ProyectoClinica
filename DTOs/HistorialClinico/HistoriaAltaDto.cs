@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DTOs.HistorialClinico
 {
+ 
     public class HistoriaAltaDto
     {
 

@@ -1,4 +1,5 @@
-﻿using DTOs.Paciente;
+﻿using DTOs.HistorialClinico;
+using DTOs.Paciente;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     {
 
         FichaPacienteDto obtenerFichaPaciente(int id);
-
+        FichaPacienteDto obtenerFichaYAltaHistorialPaciente(HistoriaAltaDto dto);
 
     }
 }

@@ -98,6 +98,20 @@ namespace DTOs.Mappers
 
 
 
+        public static HistorialesClinicos FromDtoToHistorialClinicoToHistorialClinico(HistoriaAltaDto dto)
+        {
+            HistorialesClinicos retorno = new HistorialesClinicos();
+            retorno.PacienteId = dto.PacienteId;
+            retorno.MotivoDeConsulta = dto.MotivoDeConsulta;
+              retorno.EnfermedadActual = dto.EnfermedadActual;
+                retorno.Antecedentes = dto.Antecedentes;
+                retorno.HabitosPSB = dto.HabitosPSB;
+                retorno.ExamenFisico = dto.ExamenFisico;
+                retorno.Diagnostico = dto.Diagnostico;
+                retorno.ExameneLaboratorio = dto.ExameneLaboratorio;
+                retorno.Tratamiento = dto.Tratamiento;
+           return retorno;
+        }
 
 
 

@@ -3,6 +3,7 @@ using DTOs.Paciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUHistoriaClinica;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace ClinicaMvc.Controllers
 {
@@ -27,12 +28,36 @@ namespace ClinicaMvc.Controllers
             _listarHistoriaClinica = listarHistoriaClinica;
         }
 
-        public IActionResult ObtenerFichaPaciente(int id)
+        public IActionResult ObtenerFichaPaciente(int id, string motivoDeConsulta, string enfermedadActual, 
+            string antecedentes, string habitosPSB, string examenFisico, string diagnostico, string examenLaboratorio, 
+            string tratamiento, bool creandoHistorial)
         {
             try
             {
-                FichaPacienteDto dto = _fichaPaciente.obtenerFichaPaciente(id);
-                return View(dto);  
+                if (id != 0 && creandoHistorial == true) 
+                {
+                    HistoriaAltaDto dto = new HistoriaAltaDto
+                    {
+                        PacienteId = id,
+                        MotivoDeConsulta = motivoDeConsulta,
+                        EnfermedadActual = enfermedadActual,
+                        Antecedentes = antecedentes,
+                        HabitosPSB = habitosPSB,
+                        ExamenFisico = examenFisico,
+                        Diagnostico = diagnostico,
+                        ExameneLaboratorio = examenLaboratorio,
+                        Tratamiento = tratamiento
+                    };
+
+                    FichaPacienteDto retorno2 = _fichaPaciente.obtenerFichaYAltaHistorialPaciente(dto);
+                    return View(retorno2);
+                }
+                else 
+                {
+                    FichaPacienteDto retorno1 = _fichaPaciente.obtenerFichaPaciente(id);
+                    return View(retorno1);
+                }
+                  
             }
             catch (Exception e)
             {
@@ -40,20 +65,35 @@ namespace ClinicaMvc.Controllers
             }
         }
 
-        
-        public IActionResult Create()
+
+
+        public IActionResult Create(int PacienteId)
         {
-            return View(new HistoriaAltaDto());  
+            HistoriaAltaDto altaDto = new HistoriaAltaDto();
+            altaDto.PacienteId = PacienteId;
+            return View(altaDto);  
         }
 
         
         [HttpPost]
-        public IActionResult Create(HistoriaAltaDto altaDto, int id)
+        public IActionResult Create(HistoriaAltaDto altaDto)
         {
             try
             {
-                _agregarHistoria.Ejecutar(altaDto, id);
-                return RedirectToAction("GetHistoriaClinica", new { id }); 
+
+                return RedirectToAction("ObtenerFichaPaciente", "HistoriaClinica", new
+                {
+                    id = altaDto.PacienteId,
+                    motivoDeConsulta = altaDto.MotivoDeConsulta,
+                    enfermedadActual = altaDto.EnfermedadActual,
+                    antecedentes = altaDto.Antecedentes,
+                    habitosPSB = altaDto.HabitosPSB,
+                    examenFisico = altaDto.ExamenFisico,
+                    diagnostico = altaDto.Diagnostico,
+                    examenLaboratorio = altaDto.ExameneLaboratorio,
+                    tratamiento = altaDto.Tratamiento,
+                    creandoHistorial = true
+                });
             }
             catch (Exception ex)
             {

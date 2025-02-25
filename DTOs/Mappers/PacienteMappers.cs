@@ -64,11 +64,12 @@ namespace DTOs.Mappers
         }
 
 
-
+     
 
         public static FichaPacienteDto FromPacienteFichaDto(Pacientes dto)
         {
             FichaPacienteDto paciente = new FichaPacienteDto();
+            paciente.idPaciente = dto.Id;
             paciente.NombreCompleto = dto.NombreCompleto;
             paciente.NumeroDocumento = dto.NumeroDocumento;
             paciente.Telefono = dto.Telefono;
