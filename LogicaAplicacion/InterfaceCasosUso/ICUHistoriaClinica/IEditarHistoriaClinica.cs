@@ -10,8 +10,8 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUHistoriaClinica
     public interface IEditarHistoriaClinica
     {
 
-
-        void Ejecutar(EditarHistoriaDTO editDis , int id);
+        EditarHistoriaDTO MostrarAntiguosValores(int id);
+        void Ejecutar(EditarHistoriaDTO editDis);
 
 
     }

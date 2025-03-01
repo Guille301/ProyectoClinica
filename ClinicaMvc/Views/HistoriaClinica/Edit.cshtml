@@ -13,11 +13,6 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="id" class="control-label"></label>
-                <input asp-for="id" class="form-control" />
-                <span asp-validation-for="id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="MotivoDeConsulta" class="control-label"></label>
                 <input asp-for="MotivoDeConsulta" class="form-control" />
                 <span asp-validation-for="MotivoDeConsulta" class="text-danger"></span>
@@ -57,6 +52,11 @@
                 <input asp-for="Tratamiento" class="form-control" />
                 <span asp-validation-for="Tratamiento" class="text-danger"></span>
             </div>
+            <div class="form-group" hidden>
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -65,7 +65,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <p>@Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })</p>
 </div>
 
 @section Scripts {

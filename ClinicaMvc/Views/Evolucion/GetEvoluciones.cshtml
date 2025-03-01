@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DTOs.Evolucion.EvolucionListaDto>
+﻿@model DTOs.Evolucion.EvolucionPacienteDto
 
 @{
     ViewData["Title"] = "GetEvoluciones";
@@ -6,36 +6,47 @@
 
 <h1>GetEvoluciones</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdHistoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionEvolucion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdHistoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescripcionEvolucion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+
+
+@if (Model.listaEvoluciones == null || !Model.listaEvoluciones.Any())
+{
+    <p>Este paciente no tiene evoluciones.</p>
+    <p>@Html.ActionLink("Agregar Evolucion","Create","Evolucion",new{id=Model.IdPaciente})|
+        @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
+    </p>
 }
-    </tbody>
-</table>
+else
+{
+    <div>
+        <p>
+            @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente })|
+            @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    IdHisoria
+                </th>
+                <th>
+                    DescripcionEvolucion
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.listaEvoluciones)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdHistoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionEvolucion)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

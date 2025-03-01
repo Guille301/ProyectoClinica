@@ -7,11 +7,13 @@ public class HomeController : Controller
 {
     private readonly ICUListarPaciente _CUListarPaciente;
     private readonly ICUPacienteFiltro _cUPacienteFiltro;
+    private readonly ICUEliminarPaciente _cuEliminarPaciente;
 
-    public HomeController(ICUListarPaciente cuListarPaciente, ICUPacienteFiltro cUPacienteFiltro)
+    public HomeController(ICUListarPaciente cuListarPaciente, ICUPacienteFiltro cUPacienteFiltro, ICUEliminarPaciente cuEliminarPaciente)
     {
         _CUListarPaciente = cuListarPaciente;
         _cUPacienteFiltro = cUPacienteFiltro;
+        _cuEliminarPaciente = cuEliminarPaciente;
     }
 
     public IActionResult Index(string? ci, string? nombre)
@@ -35,6 +37,16 @@ public class HomeController : Controller
             return View();
         }
     }
+
+
+    public IActionResult Delete(int id) 
+    {
+      _cuEliminarPaciente.Eliminar(id);
+      return RedirectToAction("Index");
+    }
+
+
+
 
     public IActionResult Privacy()
     {

@@ -32,6 +32,7 @@ namespace webApp
             builder.Services.AddScoped<ICULogin, Login>();
             builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
             builder.Services.AddScoped<ICUListarEvoluciones, CUListarEvolucion>();
+            builder.Services.AddScoped<ICUEliminarPaciente, EliminarPaciente>();
             //builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
             builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
             builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();

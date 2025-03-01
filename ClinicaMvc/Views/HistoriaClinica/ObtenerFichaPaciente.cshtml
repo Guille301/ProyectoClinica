@@ -102,6 +102,10 @@ else
                 @Html.DisplayFor(model => model.Tratamiento)
             </dd>
         </dl>
+        <p>
+            @Html.ActionLink("Editar Historial", "Edit", "HistoriaClinica", new { id = Model.idPaciente })
+            |  @Html.ActionLink("Ver Evoluciones", "GetEvoluciones", "Evolucion", new { id = Model.idPaciente })
+        </p>
     </div>
 }
 

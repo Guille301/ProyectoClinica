@@ -34,7 +34,7 @@ namespace ClinicaMvc.Controllers
         {
             try
             {
-                if (id != 0 && creandoHistorial == true) 
+                if (id != 0 && creandoHistorial == true) //En el caso de que se este creando un historial clinico
                 {
                     HistoriaAltaDto dto = new HistoriaAltaDto
                     {
@@ -49,24 +49,24 @@ namespace ClinicaMvc.Controllers
                         Tratamiento = tratamiento
                     };
 
-                    FichaPacienteDto retorno2 = _fichaPaciente.obtenerFichaYAltaHistorialPaciente(dto);
+                    FichaPacienteDto retorno2 = _fichaPaciente.obtenerFichaYAltaHistorialPaciente(dto); 
                     return View(retorno2);
                 }
-                else 
+                else //Si hay o no un historial clinico
                 {
-                    FichaPacienteDto retorno1 = _fichaPaciente.obtenerFichaPaciente(id);
+                    FichaPacienteDto retorno1 = _fichaPaciente.obtenerFichaPaciente(id); 
                     return View(retorno1);
                 }
                   
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return View("Error"); 
             }
         }
 
 
-
+        //Crear historial Clinico -------------------------------------------------------------
         public IActionResult Create(int PacienteId)
         {
             HistoriaAltaDto altaDto = new HistoriaAltaDto();
@@ -101,33 +101,22 @@ namespace ClinicaMvc.Controllers
                 return View(altaDto); 
             }
         }
+        //-------------------------------------------------------------------------------------------
 
-        
-        //public IActionResult Edit(int id)
-        //{
-        //    try
-        //    {
-        //        var historia = _editarHistoriaClinica.Ejecutar(id);
-        //        if (historia == null)
-        //        {
-        //            return NotFound();
-        //        }
-        //        return View(historia);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return View("Error");
-        //    }
-        //}
+        public IActionResult Edit(int id)
+        {
+            return View(_editarHistoriaClinica.MostrarAntiguosValores(id));
+        }
 
-        // POST para procesar la edición
         [HttpPost]
-        public IActionResult Edit(int id, EditarHistoriaDTO dto)
+        public IActionResult Edit(EditarHistoriaDTO dto)
         {
             try
             {
-                _editarHistoriaClinica.Ejecutar(dto, id);
-                return RedirectToAction("GetHistoriaClinica", new { id });
+                _editarHistoriaClinica.Ejecutar(dto);
+                //TODO
+                //Aqui deberia redireccionar a la vista ObtenerFichaPaciente
+                return RedirectToAction("ObtenerFichaPaciente", "HistoriaClinica", new {id = dto.Id });
             }
             catch (Exception ex)
             {

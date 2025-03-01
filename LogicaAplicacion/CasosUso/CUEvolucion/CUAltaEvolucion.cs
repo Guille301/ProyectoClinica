@@ -32,30 +32,24 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
       
 
-        public void Ejecutar(EvolucionAltaDto EvolucionDTO, int id)
+        public void Ejecutar(EvolucionAltaDto EvolucionDTO)
         {
-          
+          try
+          {  
 
-            try
-            {
-                
-             HistorialesClinicos evoIdHistoria = _repoHistoriaClinica.FindById(id);
-               
-                
 
-                
-                   Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO, evoIdHistoria);
-                    _repoEvolucion.Add(ev);
-                    
+           HistorialesClinicos evoIdHistoria = _repoHistoriaClinica.FindByPacienteId(EvolucionDTO.IdPaciente);
+           EvolucionDTO.IdHistoria = evoIdHistoria.Id;
 
-                
+           Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
+                ev.HistorialClinico = evoIdHistoria;
+           _repoEvolucion.Add(ev);  
+          }
+          catch (Exception ex)
+          {
 
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception($"Ocurrió un error al intentar hacer la evolucion: {ex.Message}", ex);
-            }
+              throw new Exception($"Ocurrió un error al intentar hacer la evolucion: {ex.Message}", ex);
+          }
         }
 
 

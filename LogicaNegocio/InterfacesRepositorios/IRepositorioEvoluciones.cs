@@ -10,5 +10,6 @@ namespace LogicaNegocio.InterfacesRepositorios
     public interface IRepositorioEvoluciones:IRepositorioIRepositorio<Evolucion>
     {
         List<Evolucion> ListarEvolucionesConFiltro(int? id);
+        void RemoveAllByHistoria(int idHistoria);
     }
 }

@@ -12,6 +12,7 @@ namespace DTOs.Evolucion
     {
 
 
+           public int IdPaciente {  get; set; }
             public int IdHistoria { get; set; }
             public DateTime fecha = DateTime.Now;
             public string DescripcionEvolucion { get; set; }

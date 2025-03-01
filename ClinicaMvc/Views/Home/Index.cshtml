@@ -36,9 +36,8 @@
         <article class="table-container">
             <div class="header-table">
                 <p>Nombre Completo</p>
-                <p>Número Documento</p>
-                <p>ID</p>
-                <p>Edad</p>
+                <p>Cedula</p>
+                <p>Patologia</p>
             </div>
             @if (Model != null && Model.Any())
             {
@@ -50,6 +49,7 @@
                         <p>@paciente.Edad</p>
                         <p>@Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })</p>
                         <p>@Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })</p>
+                        <p>@Html.ActionLink("¡Borrar Paciente!?", "Delete", "Home", new { id = paciente.id })</p>
                     </div>
                 }
             }

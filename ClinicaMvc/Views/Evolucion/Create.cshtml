@@ -12,10 +12,15 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group"hidden>
                 <label asp-for="IdHistoria" class="control-label"></label>
                 <input asp-for="IdHistoria" class="form-control" />
                 <span asp-validation-for="IdHistoria" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="IdPaciente" class="control-label"></label>
+                <input asp-for="IdPaciente" class="form-control" />
+                <span asp-validation-for="IdPaciente" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DescripcionEvolucion" class="control-label"></label>
@@ -30,7 +35,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <p> @Html.ActionLink("Volver", "GetEvoluciones", "Evolucion", new { id = Model.IdPaciente })</p>
 </div>
 
 @section Scripts {

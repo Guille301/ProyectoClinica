@@ -48,8 +48,40 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Evolucion evolucionEncontrado = FindById(id);
+            _db.Remove(evolucionEncontrado);
+            _db.SaveChanges();
         }
+
+
+        public void RemoveAllByHistoria(int idHistoria)
+        {
+            try
+            {
+                // Encontramos todas las evoluciones relacionadas con el IdHistoria
+                var evolucionesAEliminar = _db.Evoluciones.Where(e => e.IdHistoria == idHistoria).ToList();
+
+                // Verificamos si hay evoluciones a eliminar
+                if (evolucionesAEliminar.Any())
+                {
+                    _db.Evoluciones.RemoveRange(evolucionesAEliminar); // Eliminamos todas las evoluciones encontradas
+                    _db.SaveChanges(); // Guardamos los cambios
+                }
+                else
+                {
+                    // Si no se encuentran evoluciones para el IdHistoria, podrías lanzar una excepción o manejarlo de otra manera
+                    throw new Exception("No se encontraron evoluciones para el historial clínico especificado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si ocurre algún error, se lanza una excepción
+                throw new Exception("Error al eliminar las evoluciones para el historial clínico", ex);
+            }
+        }
+
+
+
 
         public void Update(Evolucion obj)
         {

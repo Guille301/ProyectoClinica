@@ -27,15 +27,17 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
 
         }
-        public List<EvolucionListaDto> ListarEvoluciones(int id)
+        public EvolucionPacienteDto ListarEvoluciones(int id)
         {
 
             
             try
             {
-               
+                EvolucionPacienteDto retorno = new EvolucionPacienteDto();  
                 List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(id));
-                return dtoListarEvoluciones;
+                retorno.IdPaciente = id;
+                retorno.listaEvoluciones = dtoListarEvoluciones;
+                return retorno;
             }
             catch (Exception ex)
             {

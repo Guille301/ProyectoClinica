@@ -113,7 +113,9 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            Pacientes pacienteEncontrado = FindById(id);
+            _db.Remove(pacienteEncontrado);
+            _db.SaveChanges();
         }
 
         public void Update(Pacientes obj)

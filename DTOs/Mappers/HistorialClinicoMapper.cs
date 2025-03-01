@@ -4,6 +4,7 @@ using LogicaNegocio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,21 +59,20 @@ namespace DTOs.Mappers
 
 
 
-        public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit, int idPaciente)
+        public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit)
         {
-            return new HistorialesClinicos(
+            HistorialesClinicos retorno = new HistorialesClinicos();
+        
+            retorno.Id = edit.Id;
+            retorno.MotivoDeConsulta = edit.MotivoDeConsulta;
+            retorno.Antecedentes = edit.Antecedentes;
+            retorno.HabitosPSB = edit.HabitosPSB;
+            retorno.ExamenFisico = edit.ExamenFisico;
+            retorno.Diagnostico = edit.Diagnostico;
+            retorno.ExameneLaboratorio = edit.ExameneLaboratorio;
+            retorno.Tratamiento = edit.Tratamiento;
 
-            edit.id = idPaciente,
-            edit.MotivoDeConsulta,
-            edit.EnfermedadActual,
-            edit.Antecedentes,
-            edit.HabitosPSB,
-            edit.ExamenFisico,
-            edit.Diagnostico,
-            edit.ExameneLaboratorio,
-            edit.Tratamiento
-
-                ) ;
+            return retorno;
         }
 
         
@@ -114,6 +114,21 @@ namespace DTOs.Mappers
         }
 
 
+        public static EditarHistoriaDTO FromHistorialClinicoToEditarHistoriaDto(HistorialesClinicos historia) 
+        {
+            EditarHistoriaDTO retorno = new EditarHistoriaDTO();
+            retorno.Id = historia.Id;
+            retorno.IdPaciente = historia.PacienteId;
+            retorno.MotivoDeConsulta = historia.MotivoDeConsulta;
+            retorno.EnfermedadActual = historia.EnfermedadActual;
+            retorno.Antecedentes = historia.Antecedentes;
+            retorno.HabitosPSB = historia.HabitosPSB;
+            retorno.ExamenFisico = historia.ExamenFisico;
+            retorno.Diagnostico = historia.Diagnostico;
+            retorno.ExameneLaboratorio = historia.ExameneLaboratorio;
+            retorno.Tratamiento = historia.Tratamiento;
+            return retorno;
+        }
 
 
 

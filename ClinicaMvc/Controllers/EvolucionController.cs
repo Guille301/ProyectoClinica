@@ -23,7 +23,7 @@ namespace ClinicaMvc.Controllers
             {
                 try
                 {
-                    var evoluciones = _cUListarEvoluciones.ListarEvoluciones(id);
+                    EvolucionPacienteDto evoluciones = _cUListarEvoluciones.ListarEvoluciones(id);
                     return View(evoluciones);
                 }
                 catch (Exception ex)
@@ -34,19 +34,21 @@ namespace ClinicaMvc.Controllers
             }
 
             // GET: Mostrar el formulario de creación
-            public IActionResult Create()
+            public IActionResult Create(int id)
             {
-                return View(new EvolucionAltaDto());
+                EvolucionAltaDto dto = new EvolucionAltaDto();
+                dto.IdPaciente = id;
+                return View(dto);
             }
 
             // POST: Procesar el alta de una evolución
             [HttpPost]
-            public IActionResult Create(EvolucionAltaDto altaEvolucionDto, int id)
+            public IActionResult Create(EvolucionAltaDto altaEvolucionDto)
             {
                 try
                 {
-                    _cuAltaEvolucion.Ejecutar(altaEvolucionDto, id);
-                    return RedirectToAction("GetEvoluciones", new { id });
+                    _cuAltaEvolucion.Ejecutar(altaEvolucionDto);
+                    return RedirectToAction("GetEvoluciones", new { id = altaEvolucionDto.IdPaciente });
                 }
                 catch (Exception ex)
                 {
