@@ -53,10 +53,16 @@
                 <span asp-validation-for="Tratamiento" class="text-danger"></span>
             </div>
             <div class="form-group" hidden>
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
+                <label asp-for="HistorialId" class="control-label"></label>
+                <input asp-for="HistorialId" class="form-control" />
+                <span asp-validation-for="HistorialId" class="text-danger"></span>
             </div>
+            <div class="form-group" hidden>
+                <label asp-for="IdPaciente" class="control-label"></label>
+                <input asp-for="IdPaciente" class="form-control" />
+                <span asp-validation-for="IdPaciente" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -16,14 +16,14 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
     {
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
-        
+        private readonly IRepositorioHistorialesClinicos _repoHistorialesClinicos;
 
 
 
-        public CUListarEvolucion(IRepositorioEvoluciones repoEvo)
+        public CUListarEvolucion(IRepositorioEvoluciones repoEvo, IRepositorioHistorialesClinicos repositorioHistorialesClinicos)
         {
             _repoEvolucion = repoEvo;
-           
+            _repoHistorialesClinicos = repositorioHistorialesClinicos;
 
 
         }
@@ -33,8 +33,10 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
             
             try
             {
-                EvolucionPacienteDto retorno = new EvolucionPacienteDto();  
-                List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(id));
+                EvolucionPacienteDto retorno = new EvolucionPacienteDto();
+                HistorialesClinicos historialEncontrado = _repoHistorialesClinicos.FindByPacienteId(id);
+              
+                List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(historialEncontrado.Id));
                 retorno.IdPaciente = id;
                 retorno.listaEvoluciones = dtoListarEvoluciones;
                 return retorno;

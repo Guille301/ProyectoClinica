@@ -29,7 +29,7 @@ class Program
 
             // Esperar un tiempo para que el servidor se inicie (ajusta según lo que necesites)
             Console.WriteLine("Iniciando el servidor MVC...");
-            Thread.Sleep(5000); // Puedes aumentar este tiempo si tu servidor tarda más en arrancar
+           
 
             // Abrir el navegador en la URL del proyecto
             Process.Start(new ProcessStartInfo

@@ -63,7 +63,7 @@ namespace DTOs.Mappers
         {
             HistorialesClinicos retorno = new HistorialesClinicos();
         
-            retorno.Id = edit.Id;
+            retorno.Id = edit.HistorialId;
             retorno.MotivoDeConsulta = edit.MotivoDeConsulta;
             retorno.Antecedentes = edit.Antecedentes;
             retorno.HabitosPSB = edit.HabitosPSB;
@@ -117,7 +117,7 @@ namespace DTOs.Mappers
         public static EditarHistoriaDTO FromHistorialClinicoToEditarHistoriaDto(HistorialesClinicos historia) 
         {
             EditarHistoriaDTO retorno = new EditarHistoriaDTO();
-            retorno.Id = historia.Id;
+            retorno.HistorialId = historia.Id;
             retorno.IdPaciente = historia.PacienteId;
             retorno.MotivoDeConsulta = historia.MotivoDeConsulta;
             retorno.EnfermedadActual = historia.EnfermedadActual;

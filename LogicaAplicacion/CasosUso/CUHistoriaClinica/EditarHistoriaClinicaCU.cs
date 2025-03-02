@@ -32,7 +32,7 @@ namespace LogicaAplicacion.CasosUso.CUHistoriaClinica
             try
             {
 
-                HistorialesClinicos His = _repoHistoriales.FindById(editDis.Id);
+                HistorialesClinicos His = _repoHistoriales.FindById(editDis.HistorialId);
                 His.MotivoDeConsulta = editDis.MotivoDeConsulta;
                 His.Antecedentes = editDis.Antecedentes;
                 His.HabitosPSB = editDis.HabitosPSB;
@@ -54,7 +54,7 @@ namespace LogicaAplicacion.CasosUso.CUHistoriaClinica
 
         public EditarHistoriaDTO MostrarAntiguosValores(int id)
         {
-           HistorialesClinicos encontrarHistorial = _repoHistoriales.FindById(id);
+           HistorialesClinicos encontrarHistorial = _repoHistoriales.FindByPacienteId(id);
             EditarHistoriaDTO retorno = HistorialClinicoMapper.FromHistorialClinicoToEditarHistoriaDto(encontrarHistorial);
 
             return retorno;

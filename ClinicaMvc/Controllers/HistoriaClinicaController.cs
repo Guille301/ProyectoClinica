@@ -105,7 +105,8 @@ namespace ClinicaMvc.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View(_editarHistoriaClinica.MostrarAntiguosValores(id));
+            EditarHistoriaDTO valoresAntiguos = _editarHistoriaClinica.MostrarAntiguosValores(id);
+            return View(valoresAntiguos);
         }
 
         [HttpPost]
@@ -116,7 +117,7 @@ namespace ClinicaMvc.Controllers
                 _editarHistoriaClinica.Ejecutar(dto);
                 //TODO
                 //Aqui deberia redireccionar a la vista ObtenerFichaPaciente
-                return RedirectToAction("ObtenerFichaPaciente", "HistoriaClinica", new {id = dto.Id });
+                return RedirectToAction("ObtenerFichaPaciente", "HistoriaClinica", new {id = dto.IdPaciente });
             }
             catch (Exception ex)
             {

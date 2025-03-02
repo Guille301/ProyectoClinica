@@ -41,6 +41,7 @@ public class HomeController : Controller
 
     public IActionResult Delete(int id) 
     {
+
       _cuEliminarPaciente.Eliminar(id);
       return RedirectToAction("Index");
     }

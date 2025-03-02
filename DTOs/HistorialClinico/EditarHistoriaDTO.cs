@@ -9,7 +9,7 @@ namespace DTOs.HistorialClinico
     public class EditarHistoriaDTO
     {
 
-        public int Id { get; set; }
+        public int HistorialId { get; set; }
         public int IdPaciente { get; set; }
         public string MotivoDeConsulta { get; set; }
         public string EnfermedadActual { get; set; }
