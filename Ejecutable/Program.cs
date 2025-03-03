@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
+using System.IO;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string rutaProyecto = @"C:\Users\juanp\OneDrive\Desktop\ProyectoClinica\ClinicaMvc";  // Cambia esta ruta a la de tu proyecto MVC
-        string url = "http://localhost:5062/Login/Login"; // Cambia a la URL de tu proyecto MVC
+        // Obtiene la ruta del directorio donde está el ejecutable
+        string directorioEjecutable = AppDomain.CurrentDomain.BaseDirectory;
+
+        // Construye la ruta del proyecto MVC (suponiendo que 'ClinicaMvc' está en el mismo directorio que el ejecutable)
+        string rutaProyecto = Path.Combine(directorioEjecutable, "ClinicaMvc"); // Ajusta si el nombre de la carpeta es diferente
+
+        string url = "http://localhost:5062/Login/Login"; // URL de la vista del login de tu proyecto MVC
 
         try
         {
@@ -17,8 +22,8 @@ class Program
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = "dotnet",
-                    Arguments = "run",
-                    WorkingDirectory = rutaProyecto, // Directorio del proyecto MVC
+                    Arguments = "run", // El comando 'dotnet run' se ejecutará dentro de la carpeta de tu proyecto MVC
+                    WorkingDirectory = rutaProyecto, // Directorio donde está el proyecto MVC
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
@@ -29,7 +34,6 @@ class Program
 
             // Esperar un tiempo para que el servidor se inicie (ajusta según lo que necesites)
             Console.WriteLine("Iniciando el servidor MVC...");
-           
 
             // Abrir el navegador en la URL del proyecto
             Process.Start(new ProcessStartInfo
