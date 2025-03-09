@@ -16,6 +16,7 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
     {
 
         private readonly IRepositorioEvoluciones _repoEvolucion;
+<<<<<<< HEAD
         
 
 
@@ -28,14 +29,38 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
         }
         public List<EvolucionListaDto> ListarEvoluciones(int id)
+=======
+        private readonly IRepositorioHistorialesClinicos _repoHistorialesClinicos;
+
+
+
+        public CUListarEvolucion(IRepositorioEvoluciones repoEvo, IRepositorioHistorialesClinicos repositorioHistorialesClinicos)
+        {
+            _repoEvolucion = repoEvo;
+            _repoHistorialesClinicos = repositorioHistorialesClinicos;
+
+
+        }
+        public EvolucionPacienteDto ListarEvoluciones(int id)
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
         {
 
             
             try
             {
+<<<<<<< HEAD
                
                 List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(id));
                 return dtoListarEvoluciones;
+=======
+                EvolucionPacienteDto retorno = new EvolucionPacienteDto();
+                HistorialesClinicos historialEncontrado = _repoHistorialesClinicos.FindByPacienteId(id);
+              
+                List<EvolucionListaDto> dtoListarEvoluciones = EvolucionMappers.FromListEvolucionToListEvolucionDto(_repoEvolucion.ListarEvolucionesConFiltro(historialEncontrado.Id));
+                retorno.IdPaciente = id;
+                retorno.listaEvoluciones = dtoListarEvoluciones;
+                return retorno;
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
             }
             catch (Exception ex)
             {

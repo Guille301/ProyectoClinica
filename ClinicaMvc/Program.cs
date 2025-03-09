@@ -32,6 +32,10 @@ namespace webApp
             builder.Services.AddScoped<ICULogin, Login>();
             builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
             builder.Services.AddScoped<ICUListarEvoluciones, CUListarEvolucion>();
+<<<<<<< HEAD
+=======
+            builder.Services.AddScoped<ICUEliminarPaciente, EliminarPaciente>();
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
             //builder.Services.AddScoped<ICUAltaHistorialClinico, AltaHistorialClinico>();
             builder.Services.AddScoped<ICUPacienteDetalle, PacienteDetalle>();
             builder.Services.AddScoped<ICUPacienteFiltro, PacienteFiltro>();

@@ -12,6 +12,10 @@ namespace DTOs.Evolucion
     {
 
 
+<<<<<<< HEAD
+=======
+           public int IdPaciente {  get; set; }
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
             public int IdHistoria { get; set; }
             public DateTime fecha = DateTime.Now;
             public string DescripcionEvolucion { get; set; }

@@ -35,6 +35,7 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Update(HistorialesClinicos cambiado)
         {
+<<<<<<< HEAD
             var disOriginal = _db.HistorialesClinicos.Find(cambiado.PacienteId);
             try
             {
@@ -58,6 +59,10 @@ namespace LogicaAccesoDatos.Repositorios
 
                 throw;
             }
+=======
+            _db.HistorialesClinicos.Update(cambiado);
+            _db.SaveChanges();
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
         }
 
 
@@ -76,7 +81,13 @@ namespace LogicaAccesoDatos.Repositorios
 
         public void Remove(int id)
         {
+<<<<<<< HEAD
             throw new NotImplementedException();
+=======
+            HistorialesClinicos historialEncontrado = FindById(id);
+            _db.Remove(historialEncontrado);
+            _db.SaveChanges();
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
         }
 
         public List<HistorialesClinicos> ListarHistoriaClinica(int id)

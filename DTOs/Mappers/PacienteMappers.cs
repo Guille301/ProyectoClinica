@@ -64,11 +64,19 @@ namespace DTOs.Mappers
         }
 
 
+<<<<<<< HEAD
 
+=======
+     
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 
         public static FichaPacienteDto FromPacienteFichaDto(Pacientes dto)
         {
             FichaPacienteDto paciente = new FichaPacienteDto();
+<<<<<<< HEAD
+=======
+            paciente.idPaciente = dto.Id;
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
             paciente.NombreCompleto = dto.NombreCompleto;
             paciente.NumeroDocumento = dto.NumeroDocumento;
             paciente.Telefono = dto.Telefono;

@@ -32,6 +32,7 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
       
 
+<<<<<<< HEAD
         public void Ejecutar(EvolucionAltaDto EvolucionDTO, int id)
         {
           
@@ -56,6 +57,26 @@ namespace LogicaAplicacion.CasosUso.CUEvolucion
 
                 throw new Exception($"Ocurrió un error al intentar hacer la evolucion: {ex.Message}", ex);
             }
+=======
+        public void Ejecutar(EvolucionAltaDto EvolucionDTO)
+        {
+          try
+          {  
+
+
+           HistorialesClinicos evoIdHistoria = _repoHistoriaClinica.FindByPacienteId(EvolucionDTO.IdPaciente);
+           EvolucionDTO.IdHistoria = evoIdHistoria.Id;
+
+           Evolucion ev = EvolucionMappers.FromEvolucioAltaDto(EvolucionDTO);
+                ev.HistorialClinico = evoIdHistoria;
+           _repoEvolucion.Add(ev);  
+          }
+          catch (Exception ex)
+          {
+
+              throw new Exception($"Ocurrió un error al intentar hacer la evolucion: {ex.Message}", ex);
+          }
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
         }
 
 

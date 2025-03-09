@@ -1,0 +1,52 @@
+﻿@model DTOs.Evolucion.EvolucionPacienteDto
+
+@{
+    ViewData["Title"] = "GetEvoluciones";
+}
+
+<h1>GetEvoluciones</h1>
+
+
+
+@if (Model.listaEvoluciones == null || !Model.listaEvoluciones.Any())
+{
+    <p>Este paciente no tiene evoluciones.</p>
+    <p>@Html.ActionLink("Agregar Evolucion","Create","Evolucion",new{id=Model.IdPaciente})|
+        @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
+    </p>
+}
+else
+{
+    <div>
+        <p>
+            @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente })|
+            @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
+        </p>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    IdHisoria
+                </th>
+                <th>
+                    DescripcionEvolucion
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.listaEvoluciones)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdHistoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DescripcionEvolucion)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

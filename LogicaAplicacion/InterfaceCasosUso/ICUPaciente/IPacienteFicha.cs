@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿using DTOs.Paciente;
+=======
+﻿using DTOs.HistorialClinico;
+using DTOs.Paciente;
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +16,11 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     {
 
         FichaPacienteDto obtenerFichaPaciente(int id);
+<<<<<<< HEAD
 
+=======
+        FichaPacienteDto obtenerFichaYAltaHistorialPaciente(HistoriaAltaDto dto);
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 
     }
 }

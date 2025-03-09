@@ -15,9 +15,15 @@ namespace DTOs.Mappers
     {
 
 
+<<<<<<< HEAD
         public static LogicaNegocio.Entidades.Evolucion FromEvolucioAltaDto(EvolucionAltaDto PA, HistorialesClinicos ha)
         {
             return new LogicaNegocio.Entidades.Evolucion(PA.IdHistoria,PA.fecha,PA.DescripcionEvolucion,ha);
+=======
+        public static LogicaNegocio.Entidades.Evolucion FromEvolucioAltaDto(EvolucionAltaDto PA)
+        {
+            return new LogicaNegocio.Entidades.Evolucion(PA.IdHistoria,PA.fecha,PA.DescripcionEvolucion);
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 
         }
 

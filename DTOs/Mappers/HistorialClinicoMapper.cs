@@ -4,6 +4,10 @@ using LogicaNegocio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using System.Reflection.PortableExecutable;
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 using System.Text;
 using System.Threading.Tasks;
 
@@ -58,6 +62,7 @@ namespace DTOs.Mappers
 
 
 
+<<<<<<< HEAD
         public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit, int idPaciente)
         {
             return new HistorialesClinicos(
@@ -73,6 +78,22 @@ namespace DTOs.Mappers
             edit.Tratamiento
 
                 ) ;
+=======
+        public static HistorialesClinicos FromEditarHistoria(EditarHistoriaDTO edit)
+        {
+            HistorialesClinicos retorno = new HistorialesClinicos();
+        
+            retorno.Id = edit.HistorialId;
+            retorno.MotivoDeConsulta = edit.MotivoDeConsulta;
+            retorno.Antecedentes = edit.Antecedentes;
+            retorno.HabitosPSB = edit.HabitosPSB;
+            retorno.ExamenFisico = edit.ExamenFisico;
+            retorno.Diagnostico = edit.Diagnostico;
+            retorno.ExameneLaboratorio = edit.ExameneLaboratorio;
+            retorno.Tratamiento = edit.Tratamiento;
+
+            return retorno;
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
         }
 
         
@@ -98,8 +119,42 @@ namespace DTOs.Mappers
 
 
 
+<<<<<<< HEAD
 
 
+=======
+        public static HistorialesClinicos FromDtoToHistorialClinicoToHistorialClinico(HistoriaAltaDto dto)
+        {
+            HistorialesClinicos retorno = new HistorialesClinicos();
+            retorno.PacienteId = dto.PacienteId;
+            retorno.MotivoDeConsulta = dto.MotivoDeConsulta;
+              retorno.EnfermedadActual = dto.EnfermedadActual;
+                retorno.Antecedentes = dto.Antecedentes;
+                retorno.HabitosPSB = dto.HabitosPSB;
+                retorno.ExamenFisico = dto.ExamenFisico;
+                retorno.Diagnostico = dto.Diagnostico;
+                retorno.ExameneLaboratorio = dto.ExameneLaboratorio;
+                retorno.Tratamiento = dto.Tratamiento;
+           return retorno;
+        }
+
+
+        public static EditarHistoriaDTO FromHistorialClinicoToEditarHistoriaDto(HistorialesClinicos historia) 
+        {
+            EditarHistoriaDTO retorno = new EditarHistoriaDTO();
+            retorno.HistorialId = historia.Id;
+            retorno.IdPaciente = historia.PacienteId;
+            retorno.MotivoDeConsulta = historia.MotivoDeConsulta;
+            retorno.EnfermedadActual = historia.EnfermedadActual;
+            retorno.Antecedentes = historia.Antecedentes;
+            retorno.HabitosPSB = historia.HabitosPSB;
+            retorno.ExamenFisico = historia.ExamenFisico;
+            retorno.Diagnostico = historia.Diagnostico;
+            retorno.ExameneLaboratorio = historia.ExameneLaboratorio;
+            retorno.Tratamiento = historia.Tratamiento;
+            return retorno;
+        }
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 
 
 

@@ -13,7 +13,11 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     {
 
 
+<<<<<<< HEAD
         public void Ejecutar(EvolucionAltaDto EvolucionDTO, int id);
+=======
+        public void Ejecutar(EvolucionAltaDto EvolucionDTO);
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
 
 
 

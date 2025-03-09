@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace DTOs.HistorialClinico
 {
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
     public class HistoriaAltaDto
     {
 

@@ -9,6 +9,10 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUEvolucion
 {
     public interface ICUListarEvoluciones
     {
+<<<<<<< HEAD
         public List<EvolucionListaDto> ListarEvoluciones(int id);
+=======
+        public EvolucionPacienteDto ListarEvoluciones(int id);
+>>>>>>> bf58e0f (se mejoro la interfaz del dashboard)
     }
 }
