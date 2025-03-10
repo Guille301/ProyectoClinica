@@ -458,7 +458,9 @@ hr {
     color: white;
     border-radius: 30px;
     left: 0;
-    transition: all .3s
+    display: flex;
+    align-items: center;
+    transition: all .3s;
 }
 .back-btn::after {
     content: 'Volver';
@@ -477,9 +479,38 @@ hr {
     opacity: 1;
     margin-left: 0.5rem; /* Espacio entre el icono y el texto */
 }
-
-
 .header-create{
     margin-bottom: 2rem;
     text-align: center;
+}
+.detail-section{
+    width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    box-shadow: var(--box-shadow-sm);
+    padding: 2rem;
+}
+.top, .middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.title-detail {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.detail-content-container span{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.body-detail{
+    height: 100vh;
+    width: 1600px;
+    position: relative;
+    margin: 0 auto;
+}
+.back-detail{
+    top: 8rem;
 }

@@ -1,10 +1,64 @@
 ﻿@model DTOs.Paciente.PacienteDetalleDto
 
 @{
-    ViewData["Title"] = "ObtenerPacienteDetalle";
+    ViewData["Title"] = "Detalles del paciente";
 }
 
-<h1>ObtenerPacienteDetalle</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body class="body-detail">
+    <h2 class="title-detail">Detalles del paciente</h2>
+    <section class="detail-section">
+        <div class="top">
+            <div class="detail-content-container">
+                Nombre completo:
+                <span>@Html.DisplayFor(model => model.Nombre)</span>
+            </div>
+            <div class="detail-content-container">
+                Número de identificación:
+                <span>@Html.DisplayFor(model => model.Ci)</span>
+            </div>
+            <div class="detail-content-container">
+                Número de identificación:
+                <span>@Html.DisplayFor(model => model.fecha)</span>
+            </div>
+        </div>
+            <div class="middle">
+                <div class="detail-content-container">
+                    Número de teléfono:
+                    <span>@Html.DisplayFor(model => model.Telefono)</span>
+                </div>
+                <div class="detail-content-container">
+                    Dirección:
+                    <span>@Html.DisplayFor(model => model.Direccion)</span>
+                </div>
+             </div>
+        <div class="middle">
+            <div class="detail-content-container">
+                Patología:
+                <span>@Html.DisplayFor(model => model.Patologia)</span>
+            </div>
+        </div>
+    </section>
+    <a class="back-btn back-detail" href="@Url.Action("Index", "Home")">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M11 7l-5 5l5 5" />
+            <path d="M17 7l-5 5l5 5" />
+        </svg>
+    </a>
+</body>
+</html>
+
+@* <h1>ObtenerPacienteDetalle</h1>
 
 <div>
     <h4>PacienteDetalleDto</h4>
@@ -47,7 +101,5 @@
             @Html.DisplayFor(model => model.Patologia)
         </dd>
     </dl>
-</div>
-<div>
-    @Html.ActionLink("Volver a la lista","Index", "Home")
-</div>
+</div> *@
+
