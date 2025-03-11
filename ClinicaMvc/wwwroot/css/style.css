@@ -514,3 +514,11 @@ hr {
 .back-detail{
     top: 8rem;
 }
+
+.link-registrarse {
+    color: #A0AEC0; /* Gris claro */
+    font-size: 12px; /* Tamaño pequeño */
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}

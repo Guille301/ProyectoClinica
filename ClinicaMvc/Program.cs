@@ -30,6 +30,7 @@ namespace webApp
             builder.Services.AddScoped<IAltaPaciente, AltaPaciente>();
             builder.Services.AddScoped<ICUListarPaciente, ListarPaciente>();
             builder.Services.AddScoped<ICULogin, Login>();
+            builder.Services.AddScoped<ICURegistro, Registro>();
             builder.Services.AddScoped<IAltaEvolucion, CUAltaEvolucion>();
             builder.Services.AddScoped<ICUListarEvoluciones, CUListarEvolucion>();
             builder.Services.AddScoped<ICUEliminarPaciente, EliminarPaciente>();
@@ -40,6 +41,7 @@ namespace webApp
             builder.Services.AddScoped<IAgregrarHistoriaClinica, AltaHistoriaClinica>();
             builder.Services.AddScoped<IEditarHistoriaClinica, EditarHistoriaClinicaCU>();
             builder.Services.AddScoped<IListarHistoriaClinica, ListarHistoriaClinica>();
+           
 
 
 

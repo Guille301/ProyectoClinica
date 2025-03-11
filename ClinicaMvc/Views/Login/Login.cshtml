@@ -36,9 +36,15 @@
                 <div class="btn-container">
                     <button type="submit" class="login-btn primary-button">Iniciar Sesión</button>
                 </div>
+                <div class="link-registrarse">
+                    @Html.ActionLink("¿No tienes cuenta? Crea una", "Registro", "Login")
+                </div>
+
             </form>
         </article>
     </section>
+
+   
 
     <script src="~/js/login.js"></script>
     @section Scripts {

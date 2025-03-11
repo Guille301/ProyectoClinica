@@ -9,10 +9,12 @@ namespace ClinicaMvc.Controllers
     public class LoginController : Controller
     {
         ICULogin _CULogin;
+        ICURegistro _CURegistro;
 
-        public LoginController(ICULogin login) 
+        public LoginController(ICULogin login,ICURegistro registro) 
         {
           _CULogin = login;
+          _CURegistro = registro;
         }
 
 
@@ -57,6 +59,45 @@ namespace ClinicaMvc.Controllers
 
 
         // -------------------------------------------------------------------
+
+
+
+
+        //Registro
+        [Route("Registro")]
+        public IActionResult Registro()
+        {
+            return View();
+        }
+
+
+        [Route("Registro")]
+        [HttpPost]
+        public IActionResult Registro(DtoRegistro dto)
+        {
+            try
+            {
+                _CURegistro.Registrar(dto);
+                return RedirectToAction("Login");
+            }
+            catch (UsuarioPassworsNoCoincidenException ex) 
+            {
+                ViewBag.msg = ex.Message;
+                return View();
+            }
+            catch (UsuarioYaExisteException ex)
+            {
+                ViewBag.msg = ex.Message;
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+            
+        }
+
+
 
     }
 }

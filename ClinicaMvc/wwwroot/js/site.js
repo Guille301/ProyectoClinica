@@ -1,4 +1,9 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿
+function confirmarEliminacion(id) {
+    // Confirmar si realmente desea eliminar el paciente
+    var confirmacion = confirm("¿Está seguro de que desea eliminar este paciente?");
+    if (confirmacion) {
+        // Si el usuario acepta, redirigimos a la acción de eliminación
+       window.location.href = '/Home/Delete/' + id;  // Asegúrate de que esta URL sea correcta
+    }
+}
