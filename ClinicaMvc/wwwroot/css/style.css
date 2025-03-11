@@ -491,11 +491,17 @@ hr {
     gap: 2rem;
     justify-content: center;
     box-shadow: var(--box-shadow-sm);
-    padding: 2rem;
+    padding-block: 2rem;
+    padding-inline: 10rem;
+    align-content: center;
 }
 .top, .middle {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+.top-h, .middle-h {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .title-detail {
     text-align: center;

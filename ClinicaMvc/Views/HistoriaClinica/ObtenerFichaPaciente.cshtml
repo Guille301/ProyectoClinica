@@ -4,42 +4,43 @@
     ViewData["Title"] = "ObtenerFichaPaciente";
 }
 
-<h1>ObtenerFichaPaciente</h1>
-
-<div>
-    @Html.ActionLink("Volver", "Index", "Home")
-</div>
-
-<div>
-    <h4>FichaPacienteDto</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreCompleto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreCompleto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NumeroDocumento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NumeroDocumento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-    </dl>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body class="body-detail">
+    <h2 class="title-detail">Detalles del paciente</h2>
+    <section class="detail-section">
+        <div class="top-h">
+            <div class="detail-content-container">
+                Nombre completo:
+                <span>@Html.DisplayFor(model => model.NombreCompleto)</span>
+            </div>
+            <div class="detail-content-container">
+                Número de identificación:
+                <span>@Html.DisplayFor(model => model.NumeroDocumento)</span>
+            </div>
+        </div>
+        <div class="middle-h">
+            <div class="detail-content-container">
+                Número de teléfono:
+                <span>@Html.DisplayFor(model => model.Telefono)</span>
+            </div>
+            <div class="detail-content-container">
+                Dirección:
+                <span>@Html.DisplayFor(model => model.Direccion)</span>
+            </div>
+        </div>
+        
+    </section>
+</body>
+</html>
 
 @if(Model.idHistorialClinico == 0)
 {
