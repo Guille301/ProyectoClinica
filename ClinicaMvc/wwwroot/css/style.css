@@ -507,6 +507,10 @@ hr {
     text-align: center;
     margin-bottom: 2rem;
 }
+.title-detail2 {
+    text-align: center;
+    margin-block: 2rem;
+}
 .detail-content-container span{
     font-weight: 600;
     font-size: 1.2rem;
@@ -527,4 +531,30 @@ hr {
     text-align: center;
     display: block;
     margin-top: 20px;
+}
+.message-error {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.2rem;
+}
+.btn-addHistory{
+    background: var(--bg-primary-btn);
+    padding: 1.2rem;
+    border-radius: var(--border-ra-btn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-inline: 43%;
+    margin-top: 1rem;
+    transition: all .3s;
+    box-shadow: var(--box-shadow-sm);
+}
+.btn-addHistory:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px
+}
+.form-control:focus{
+    box-shadow: none !important;
 }

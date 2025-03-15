@@ -44,69 +44,51 @@
 
 @if(Model.idHistorialClinico == 0)
 {
-    <p>No hay historiales clinicos</p>
-    @Html.ActionLink("Crear historial clinico", "Create", "HistoriaClinica", new { PacienteId = Model.idPaciente })
+    <p class="message-error">No hay historiales clinicos</p>
+    @Html.ActionLink("Crear historial clinico", "Create", "HistoriaClinica", new { PacienteId = Model.idPaciente }, new { @class = "btn-addHistory" })
+
     ;
 }
 else
 {
-    <div>
-        <h4>Historial Clínico</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.MotivoDeConsulta)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.MotivoDeConsulta)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.EnfermedadActual)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.EnfermedadActual)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Antecedentes)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Antecedentes)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.HabitosPSB)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.HabitosPSB)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ExamenFisico)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ExamenFisico)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Diagnostico)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Diagnostico)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ExameneLaboratorio)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.ExameneLaboratorio)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Tratamiento)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Tratamiento)
-            </dd>
-        </dl>
-        <p>
-            @Html.ActionLink("Editar Historial", "Edit", "HistoriaClinica", new { id = Model.idPaciente })
-            |  @Html.ActionLink("Ver Evoluciones", "GetEvoluciones", "Evolucion", new { id = Model.idPaciente })
-        </p>
+    <h2 class="title-detail">Historial Clínico</h2>
+    <section class="detail-section">
+        <div class="detail-content-container">
+            Motivo de consulta:
+            <span>@Html.DisplayFor(model => model.MotivoDeConsulta)</span>
+        </div>
+        <div class="detail-content-container">
+            Enfermedad actual:
+            <span>@Html.DisplayFor(model => model.EnfermedadActual)</span>
+        </div>
+        <div class="detail-content-container">
+            Antecedentes:
+            <span>@Html.DisplayFor(model => model.Antecedentes)</span>
+        </div>
+        <div class="detail-content-container">
+            Hábitos PSB:
+            <span>@Html.DisplayFor(model => model.HabitosPSB)</span>
+        </div>
+        <div class="detail-content-container">
+            Examen físico:
+            <span>@Html.DisplayFor(model => model.ExamenFisico)</span>
+        </div>
+        <div class="detail-content-container">
+            Diagnóstico:
+            <span>@Html.DisplayFor(model => model.Diagnostico)</span>
+        </div>
+        <div class="detail-content-container">
+            Exámenes de laboratorio:
+            <span>@Html.DisplayFor(model => model.ExameneLaboratorio)</span>
+        </div>
+        <div class="detail-content-container">
+            Tratamiento:
+            <span>@Html.DisplayFor(model => model.Tratamiento)</span>
+        </div>
+    </section>
+    <div class="btn-container">
+        @Html.ActionLink("Editar Historial", "Edit", "HistoriaClinica", new { id = Model.idPaciente }, new { @class = "btn-edit" })
+        @Html.ActionLink("Ver Evoluciones", "GetEvoluciones", "Evolucion", new { id = Model.idPaciente }, new { @class = "btn-view" })
     </div>
 }
 

@@ -1,73 +1,99 @@
 ﻿@model DTOs.HistorialClinico.HistoriaAltaDto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Historia Clínica";
 }
 
-<h1>Create</h1>
-
-<h4>HistoriaAltaDto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header class="header-create">
+        <h2>Crear Historia Clínica</h2>
+    </header>
+    <section class="create-container">
+        <form asp-action="Create" class="form-create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="MotivoDeConsulta" class="control-label"></label>
                 <input asp-for="MotivoDeConsulta" class="form-control" />
                 <span asp-validation-for="MotivoDeConsulta" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="EnfermedadActual" class="control-label"></label>
                 <input asp-for="EnfermedadActual" class="form-control" />
                 <span asp-validation-for="EnfermedadActual" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="Antecedentes" class="control-label"></label>
                 <input asp-for="Antecedentes" class="form-control" />
                 <span asp-validation-for="Antecedentes" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="HabitosPSB" class="control-label"></label>
                 <input asp-for="HabitosPSB" class="form-control" />
                 <span asp-validation-for="HabitosPSB" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="ExamenFisico" class="control-label"></label>
                 <input asp-for="ExamenFisico" class="form-control" />
                 <span asp-validation-for="ExamenFisico" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="Diagnostico" class="control-label"></label>
                 <input asp-for="Diagnostico" class="form-control" />
                 <span asp-validation-for="Diagnostico" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="ExameneLaboratorio" class="control-label"></label>
                 <input asp-for="ExameneLaboratorio" class="form-control" />
                 <span asp-validation-for="ExameneLaboratorio" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-container input-dashboard">
                 <label asp-for="Tratamiento" class="control-label"></label>
                 <input asp-for="Tratamiento" class="form-control" />
                 <span asp-validation-for="Tratamiento" class="text-danger"></span>
             </div>
-            <div class="form-group" hidden>
+
+            <div class="input-container input-dashboard" hidden>
                 <label asp-for="PacienteId" class="control-label"></label>
                 <input asp-for="PacienteId" class="form-control" />
                 <span asp-validation-for="PacienteId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="btn-container">
+                <input type="submit" value="Crear Historia Clínica" class="btn-create" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica",new{id = Model.PacienteId})
-</div>
+        <div>@ViewBag.msg</div>
+        <a class="back-btn" href="@Url.Action("ObtenerFichaPaciente", "HistoriaClinica", new { id = Model?.PacienteId })">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M11 7l-5 5l5 5" />
+                <path d="M17 7l-5 5l5 5" />
+            </svg>
+        </a>
+    </section>
+</body>
+</html>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
