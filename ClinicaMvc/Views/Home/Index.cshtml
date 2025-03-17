@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-          rel="stylesheet" />
+    rel="stylesheet" />
     <title>@ViewData["Title"]</title>
 </head>
 <body>
@@ -44,11 +44,10 @@
                     <div class="table-row">
                         <p>@paciente.NombreCompleto</p>
                         <p>@paciente.NumeroDocumento</p>
-                        <p>@paciente.Edad</p>
-                        <div class="buttons-row">
-                            @Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })
-                            @Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })
-                        </div>
+                        <p>@paciente.NumeroDocumento</p>
+                        <p class="buttons-row">@Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })</p>
+                        <p class="buttons-row">@Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })</p>
+
                         <p class="btn_delete">
                             <a class="trash" href="javascript:void(0);" onclick="confirmarEliminacion(@paciente.id)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
