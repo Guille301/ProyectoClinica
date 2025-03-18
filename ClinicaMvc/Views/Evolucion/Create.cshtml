@@ -1,42 +1,53 @@
 ﻿@model DTOs.Evolucion.EvolucionAltaDto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Evolución";
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+<header class="header-create">
+    <h2>Crear Evolución</h2>
+</header>
+<section class="create-container">
+    <form asp-action="Create" class="form-create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <!-- Campos ocultos -->
+        <input type="hidden" asp-for="IdHistoria" />
+        <input type="hidden" asp-for="IdPaciente" />
 
-<h4>EvolucionAltaDto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group"hidden>
-                <label asp-for="IdHistoria" class="control-label"></label>
-                <input asp-for="IdHistoria" class="form-control" />
-                <span asp-validation-for="IdHistoria" class="text-danger"></span>
-            </div>
-            <div class="form-group" hidden>
-                <label asp-for="IdPaciente" class="control-label"></label>
-                <input asp-for="IdPaciente" class="form-control" />
-                <span asp-validation-for="IdPaciente" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescripcionEvolucion" class="control-label"></label>
-                <input asp-for="DescripcionEvolucion" class="form-control" />
-                <span asp-validation-for="DescripcionEvolucion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        <div class="input-container input-dashboard">
+            <label asp-for="DescripcionEvolucion" class="control-label"></label>
+            <input asp-for="DescripcionEvolucion" class="form-control" />
+            <span asp-validation-for="DescripcionEvolucion" class="text-danger"></span>
+        </div>
 
-<div>
-    <p> @Html.ActionLink("Volver", "GetEvoluciones", "Evolucion", new { id = Model.IdPaciente })</p>
-</div>
+        <div class="btn-container">
+            <input type="submit" value="Crear Evolución" class="btn-create" />
+        </div>
+    </form>
+
+    <div>@ViewBag.msg</div>
+    <a class="back-btn" href="@Url.Action("GetEvoluciones", "Evolucion", new { id = Model.IdPaciente })">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M11 7l-5 5l5 5" />
+            <path d="M17 7l-5 5l5 5" />
+        </svg>
+    </a>
+</section>
+</body>
+</html>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

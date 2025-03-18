@@ -4,49 +4,76 @@
     ViewData["Title"] = "GetEvoluciones";
 }
 
-<h1>GetEvoluciones</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body class="body-detail">
+    <h2 class="title-detail">Detalles del paciente</h2>
 
-
-
-@if (Model.listaEvoluciones == null || !Model.listaEvoluciones.Any())
-{
-    <p>Este paciente no tiene evoluciones.</p>
-    <p>@Html.ActionLink("Agregar Evolucion","Create","Evolucion",new{id=Model.IdPaciente})|
-        @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
-    </p>
-}
-else
-{
-    <div>
-        <p>
-            @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente })|
-            @Html.ActionLink("Volver", "ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })
-        </p>
-    </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    IdHisoria
-                </th>
-                <th>
-                    DescripcionEvolucion
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.listaEvoluciones)
-            {
+    @if (Model.listaEvoluciones == null || !Model.listaEvoluciones.Any())
+    {
+        <p class="msg-null">Este paciente no tiene evoluciones.</p>
+        <div class="btn-container">
+            <a class="back-btn2" href="@Url.Action("ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M11 7l-5 5l5 5" />
+                    <path d="M17 7l-5 5l5 5" />
+                </svg>
+            </a>
+            @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente }, new { @class = "btn-edit" })
+        </div>
+    }
+    else
+    {
+        <div class="btn-container">
+            <a class="back-btn2" href="@Url.Action("ObtenerFichaPaciente", "HistoriaClinica", new { id = Model.IdPaciente })">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M11 7l-5 5l5 5" />
+                    <path d="M17 7l-5 5l5 5" />
+                </svg>
+            </a>
+            @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente }, new { @class = "btn-edit" })
+        </div>
+        @* <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdHistoria)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DescripcionEvolucion)
-                    </td>
+                    <th>IdHisoria</th>
+                    <th>DescripcionEvolucion</th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
+            </thead>
+            <tbody>
+                @foreach (var item in Model.listaEvoluciones)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdHistoria)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DescripcionEvolucion)</td>
+                    </tr>
+                }
+            </tbody>
+        </table> *@
+        <article class="evolution-container">
+            <div class="header-evolution">
+                <p>Id Historia</p>
+                <p>Descripción de evolución</p>
+            </div>
+            <div class="content-evolution">
+                @foreach (var item in Model.listaEvoluciones)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.IdHistoria)</p>
+                    <p>@Html.DisplayFor(modelItem => item.DescripcionEvolucion)</p>
+                }
+            </div>
+        </article>
+    }
+</body>
+</html>

@@ -465,7 +465,7 @@ hr {
     align-items: center;
     transition: all .3s;
 }
-.back-btn::after {
+.back-btn::after, .back-btn2::after{
     content: 'Volver';
     display: inline-block;
     color: white;
@@ -476,8 +476,18 @@ hr {
     transition: max-width 0.2s ease-in-out, opacity 0.3s ease-in-out;
     white-space: nowrap; /* Evita cortes en el texto */
 }
+.back-btn2 {
+    padding: 1rem;
+    background: var(--bg-primary-btn);
+    box-shadow: var(--box-shadow-sm);
+    color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+}
 
-.back-btn:hover::after {
+.back-btn:hover::after, .back-btn2:hover::after {
     max-width: 50px; /* Ajusta el tamaño según la longitud de "Volver" */
     opacity: 1;
     margin-left: 0.5rem; /* Espacio entre el icono y el texto */
@@ -487,7 +497,7 @@ hr {
     text-align: center;
 }
 .detail-section{
-    width: 1320px;
+    width: 75vw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -519,8 +529,8 @@ hr {
     font-size: 1.2rem;
 }
 .body-detail{
+    width: 75vw;
     height: 100vh;
-    width: 1600px;
     position: relative;
     margin: 0 auto;
 }
@@ -587,6 +597,15 @@ hr {
         transition: all .3s;
         align-items: center;
     }
+    .detail-section{
+        width: 90vw;
+    }
+    .body-detail {
+        width: 90vw;
+        height: 100vh;
+        position: relative;
+        margin: 0 auto;
+    }
 }
 
 .btn-edit{
@@ -606,11 +625,39 @@ hr {
     color: white;
     border: none;
     border-radius: var(--border-ra-input);
-    padding: 1.1rem
+    padding: 1.1rem;
+    transition: all .3s;
+}
+.btn-view:hover{
+    transform: scale(1.1);
 }
 .btn-container{
     width: 100%;
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
+}
+.msg-null{
+    text-align: center;
+}
+.evolution-container{
+    box-shadow: var(--box-shadow-sm);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.header-evolution, .content-evolution {
+    display: grid;
+    grid-template-columns: 10vw 25vw;
+    justify-content: center;
+    align-items: center;
+    align-content: center
+}
+.content-evolution{
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+.content-evolution p{
+    margin-bottom: 0.5rem;
 }
