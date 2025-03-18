@@ -10,7 +10,7 @@ namespace DTOs.Paciente
     {
         public string NombreCompleto { get; set; }
         public string NumeroDocumento { get; set; }
-
+        public string Patologia { get; set; }
         public int id { get; set; }
 
         public DateTime Edad { get; set; }

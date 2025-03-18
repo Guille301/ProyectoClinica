@@ -23,7 +23,7 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
 
         }
 
-        public void Ejecutar(PacienteAltaDto PacienteDTO)
+        public void Ejecutar(PacienteAltaDto PacienteDTO, string usuarioEmail)
         {
             try
             {
@@ -32,6 +32,7 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
                 if (pacExiste == null)
                 {
                     LogicaNegocio.Entidades.Pacientes pa = PacienteMappers.FromUsuarioPacienteAltaDto(PacienteDTO);
+                    pa.UsuarioEmail = usuarioEmail;
                     _repoPaciente.Add(pa);
                 }
                 else

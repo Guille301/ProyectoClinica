@@ -37,7 +37,8 @@ namespace ClinicaMvc.Controllers
         {
             try
             {
-                _altaPaciente.Ejecutar(altaPacienteDto);
+                string emailUsuario = HttpContext.Session.GetString("usuarioEmail");
+                _altaPaciente.Ejecutar(altaPacienteDto, emailUsuario);
                 TempData["Mensaje"] = "Disciplina creada correctamente";
                 return RedirectToAction("Index", "Home");
                 
@@ -54,20 +55,6 @@ namespace ClinicaMvc.Controllers
 
 
 
-        //public IActionResult filtrarPacientes(string? ci, string? nombre)
-        //{
-
-        //    try
-        //    {
-        //        var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
-        //        return View(filtro);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Error = ex.Message;
-        //        return View();
-        //    }
-        //}
 
 
 

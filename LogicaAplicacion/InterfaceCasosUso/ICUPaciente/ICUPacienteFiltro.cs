@@ -9,6 +9,6 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
 {
     public interface ICUPacienteFiltro
     {
-        public IEnumerable<PacienteListaDto> filtroPacientes(string? ci, string? nombre);
+        public IEnumerable<PacienteListaDto> filtroPacientes(string? ci, string? nombre, string usuarioEmail);
     }
 }

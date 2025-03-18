@@ -34,7 +34,7 @@ namespace ClinicaMvc.Controllers
             try
             {
                 DtoUsuarioLogin dtoLogin = _CULogin.Logearse(dto);
-                //HttpContext.Session.SetString("gmail", dtoLogin.Email);
+                HttpContext.Session.SetString("usuarioEmail", dtoLogin.Email);
                 return RedirectToAction("Index", "Home"); // Modificar la redireccion
             }
             catch (UsuarioCredencialesIncorrectasException ex)

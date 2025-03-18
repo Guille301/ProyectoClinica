@@ -19,9 +19,9 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
         {
             _repopPacientes = repo;
         }
-        public IEnumerable<PacienteListaDto> filtroPacientes(string? ci, string? nombre)
+        public IEnumerable<PacienteListaDto> filtroPacientes(string? ci, string? nombre, string usuarioEmail)
         {
-            List<Pacientes> listaPacientes = _repopPacientes.FiltroPacientes(ci, nombre);
+            List<Pacientes> listaPacientes = _repopPacientes.FiltroPacientes(ci, nombre,usuarioEmail);
 
             //List<PacienteFiltroDto> DtoPaciente = PacienteMappers.FromDtoFiltrarPacientes(listaPacientes);
             List<PacienteListaDto> DtoPaciente = PacienteMappers.FromListPacienteToListPacienteDto(listaPacientes);

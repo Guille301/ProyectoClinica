@@ -28,6 +28,7 @@ namespace DTOs.Mappers
                 listaPacienteDto.NombreCompleto = P.NombreCompleto;
                 listaPacienteDto.NumeroDocumento = P.NumeroDocumento;
                 listaPacienteDto.Edad = P.FechaNacimiento;
+                listaPacienteDto.Patologia = P.Patologia;
                 listaPacienteDto.id = P.Id;
 
                 ret.Add(listaPacienteDto);

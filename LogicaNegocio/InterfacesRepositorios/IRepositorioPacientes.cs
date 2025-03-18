@@ -12,9 +12,9 @@ namespace LogicaNegocio.InterfacesRepositorios
 
         public void Add(Pacientes paciente);
 
-        List<Pacientes> FiltroPacientes(string? ci , string? nombre);
+        List<Pacientes> FiltroPacientes(string? ci , string? nombre,string emailUsuario);
 
-
+        List<Pacientes> FindAllPacientesByUsuarioEmail(string usuarioEmail);
         public Pacientes FindByCI(string ci);
         
     }

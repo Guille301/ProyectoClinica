@@ -37,15 +37,22 @@ namespace LogicaAccesoDatos.Repositorios
             return _db.Pacientes.OrderBy(a => a.NombreCompleto).ToList();
         }
 
+        public List<Pacientes> FindAllPacientesByUsuarioEmail(string usuarioEmail)
+        {
+            return _db.Pacientes.Where(p => p.UsuarioEmail == usuarioEmail).OrderBy(a => a.NombreCompleto).ToList();                         
+        }
 
 
 
-
-        public List<Pacientes> FiltroPacientes(string? ci, string? nombre)
+        public List<Pacientes> FiltroPacientes(string? ci, string? nombre, string emailUsuario)
         {
             try
             {
+                // Inicia la consulta con todos los pacientes
                 var query = _db.Pacientes.AsQueryable();
+
+                // Asegúrate de que solo se obtengan pacientes relacionados con el email del usuario
+                query = query.Where(e => e.UsuarioEmail == emailUsuario);
 
                 // Filtro por documento
                 if (!string.IsNullOrWhiteSpace(ci))
@@ -59,16 +66,15 @@ namespace LogicaAccesoDatos.Repositorios
                     query = query.Where(e => e.NombreCompleto.ToLower().Contains(nombre.ToLower()));
                 }
 
-
-              
-
+                // Ejecuta la consulta y convierte el resultado en una lista
                 return query.ToList();
             }
             catch (Exception ex)
             {
-                throw new Exception("No se encontraron Pacientes ", ex);
+                throw new Exception("No se encontraron Pacientes", ex);
             }
         }
+
 
 
 

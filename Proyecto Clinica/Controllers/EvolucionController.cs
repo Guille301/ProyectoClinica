@@ -30,7 +30,7 @@ namespace Proyecto_Clinica.Controllers
         {
             try
             {
-                _cuAltaEvolucion.Ejecutar(altaEvolucionDto, id);
+               // _cuAltaEvolucion.Ejecutar(altaEvolucionDto, id);
                 return Ok();
             }
             catch (Exception ex)

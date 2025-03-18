@@ -11,7 +11,7 @@ namespace LogicaAplicacion.InterfaceCasosUso.ICUPaciente
     {
 
 
-        public void Ejecutar(PacienteAltaDto PacienteDTO);
+        public void Ejecutar(PacienteAltaDto PacienteDTO, string emailUsuario);
 
 
 

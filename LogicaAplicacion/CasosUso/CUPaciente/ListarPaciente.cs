@@ -1,6 +1,7 @@
 ﻿using DTOs.Mappers;
 using DTOs.Paciente;
 using LogicaAplicacion.InterfaceCasosUso.ICUPaciente;
+using LogicaNegocio.Entidades;
 using LogicaNegocio.InterfacesRepositorios;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,10 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
         {
             _repopPacientes = repo;
         }
-        public List<PacienteListaDto> ListarPacientes()
+        public List<PacienteListaDto> ListarPacientes(string emailUsuario)
         {
-            List<PacienteListaDto> dtoListarAtletas = PacienteMappers.FromListPacienteToListPacienteDto(_repopPacientes.FindAll());
+            List<Pacientes> listaPacientes = _repopPacientes.FindAllPacientesByUsuarioEmail(emailUsuario);
+            List<PacienteListaDto> dtoListarAtletas = PacienteMappers.FromListPacienteToListPacienteDto(listaPacientes);
             return dtoListarAtletas;
         }
     }

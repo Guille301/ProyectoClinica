@@ -20,15 +20,18 @@ public class HomeController : Controller
     {
         try
         {
+            //Relacionar usuario
+            string emailUsuario = HttpContext.Session.GetString("usuarioEmail");
+
             // Si se reciben parámetros de búsqueda, aplicar el filtro
             if (!string.IsNullOrEmpty(ci) || !string.IsNullOrEmpty(nombre))
             {
-                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre);
+                var filtro = _cUPacienteFiltro.filtroPacientes(ci, nombre,emailUsuario);
                 return View(filtro);  // Devuelve la vista con la lista filtrada
             }
 
             // Si no hay parámetros de búsqueda, simplemente se muestran todos los pacientes
-            var pacientes = _CUListarPaciente.ListarPacientes();
+            var pacientes = _CUListarPaciente.ListarPacientes(emailUsuario);
             return View(pacientes);
         }
         catch (Exception ex)

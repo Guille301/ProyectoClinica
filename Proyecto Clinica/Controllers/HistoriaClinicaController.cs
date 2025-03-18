@@ -74,7 +74,7 @@ namespace Proyecto_Clinica.Controllers
             try
             {
 
-                _editarHistoriaClinica.Ejecutar(Dto,id);
+               // _editarHistoriaClinica.Ejecutar(Dto,id);
 
                
 

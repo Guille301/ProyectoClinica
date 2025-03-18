@@ -63,13 +63,13 @@
         </table> *@
         <article class="evolution-container">
             <div class="header-evolution">
-                <p>Id Historia</p>
+                <p>Fecha</p>
                 <p>Descripción de evolución</p>
             </div>
             <div class="content-evolution">
                 @foreach (var item in Model.listaEvoluciones)
                 {
-                    <p>@Html.DisplayFor(modelItem => item.IdHistoria)</p>
+                    <p>@Html.DisplayFor(modelItem => item.fecha)</p>
                     <p>@Html.DisplayFor(modelItem => item.DescripcionEvolucion)</p>
                 }
             </div>
