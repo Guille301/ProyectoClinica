@@ -11,5 +11,6 @@ namespace LogicaNegocio.InterfacesRepositorios
     {
         List<Evolucion> ListarEvolucionesConFiltro(int? id);
         void RemoveAllByHistoria(int idHistoria);
+        List<Evolucion> ListarEvolucionesByHistoriaId(int idHistoria);
     }
 }

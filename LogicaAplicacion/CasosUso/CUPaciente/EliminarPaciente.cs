@@ -29,7 +29,11 @@ namespace LogicaAplicacion.CasosUso.CUPaciente
 
             if (historialEncontrado != null) //Si tiene historial clinico lo borramos
             {
-                _evoluciones.RemoveAllByHistoria(historialEncontrado.Id);
+                List<Evolucion> evoluciones = _evoluciones.ListarEvolucionesByHistoriaId(historialEncontrado.Id);
+                if (evoluciones.Count() != 0) {
+                    _evoluciones.RemoveAllByHistoria(historialEncontrado.Id);
+                }
+                
                 _historialesClinicos.Remove(historialEncontrado.Id);
             }
 

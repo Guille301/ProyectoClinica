@@ -54,6 +54,12 @@ namespace LogicaAccesoDatos.Repositorios
         }
 
 
+        public List<Evolucion> ListarEvolucionesByHistoriaId(int idHistoria) {
+            var evoluciones = _db.Evoluciones.Where(a => a.IdHistoria == idHistoria).ToList();
+                return evoluciones;
+        }
+
+
         public void RemoveAllByHistoria(int idHistoria)
         {
             try
