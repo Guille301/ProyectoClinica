@@ -11,8 +11,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet" />
+          rel="stylesheet" />
     <title>@ViewData["Title"]</title>
+    <!-- Estilos específicos para los botones y el título -->
+    <style>
+        .title-detail2 {
+            text-align: center; /* Centra el texto */
+            margin-block: 2rem; /* Mantén el margen que ya tenías */
+        }
+
+        .btn-edit {
+            color: black;
+            padding: 1rem;
+            border: solid 1px black;
+            border-radius: var(--border-ra-input);
+            transition: all .3s;
+        }
+
+            .btn-edit:hover {
+                transform: scale(1.1);
+                background: black;
+                color: white;
+            }
+
+        .btn-view {
+            background: var(--bg-primary-btn);
+            color: white;
+            border: none;
+            border-radius: var(--border-ra-input);
+            padding: 1.1rem;
+            transition: all .3s;
+        }
+
+            .btn-view:hover {
+                transform: scale(1.1);
+            }
+    </style>
 </head>
 <body class="body-detail">
     <h2 class="title-detail">Detalles del paciente</h2>
@@ -37,69 +71,62 @@
                 <span>@Html.DisplayFor(model => model.Direccion)</span>
             </div>
         </div>
-        
     </section>
+
+    @if (Model.idHistorialClinico == 0)
+    {
+        <p class="message-error">No hay historiales clínicos</p>
+        @Html.ActionLink("Crear historial clínico", "Create", "HistoriaClinica", new { PacienteId = Model.idPaciente }, new { @class = "btn-addHistory" })
+    }
+    else
+    {
+        <h2 class="title-detail2">Historial Clínico</h2> <!-- Título centrado -->
+        <section class="detail-section historial-section">
+            <div class="detail-content-container">
+                Motivo de consulta:
+                <span>@Html.DisplayFor(model => model.MotivoDeConsulta)</span>
+            </div>
+            <div class="detail-content-container">
+                Enfermedad actual:
+                <span>@Html.DisplayFor(model => model.EnfermedadActual)</span>
+            </div>
+            <div class="detail-content-container">
+                Antecedentes:
+                <span>@Html.DisplayFor(model => model.Antecedentes)</span>
+            </div>
+            <div class="detail-content-container">
+                Hábitos PSB:
+                <span>@Html.DisplayFor(model => model.HabitosPSB)</span>
+            </div>
+            <div class="detail-content-container">
+                Examen físico:
+                <span>@Html.DisplayFor(model => model.ExamenFisico)</span>
+            </div>
+            <div class="detail-content-container">
+                Diagnóstico:
+                <span>@Html.DisplayFor(model => model.Diagnostico)</span>
+            </div>
+            <div class="detail-content-container">
+                Exámenes de laboratorio:
+                <span>@Html.DisplayFor(model => model.ExameneLaboratorio)</span>
+            </div>
+            <div class="detail-content-container">
+                Tratamiento:
+                <span>@Html.DisplayFor(model => model.Tratamiento)</span>
+            </div>
+        </section>
+        <div class="btn-container">
+            @Html.ActionLink("Editar Historial", "Edit", "HistoriaClinica", new { id = Model.idPaciente }, new { @class = "btn-edit" })
+            @Html.ActionLink("Ver Evoluciones", "GetEvoluciones", "Evolucion", new { id = Model.idPaciente }, new { @class = "btn-view" })
+        </div>
+    }
+
+    <a class="back-btn back-detail" href="@Url.Action("Index", "Home")">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M11 7l-5 5l5 5" />
+            <path d="M17 7l-5 5l5 5" />
+        </svg>
+    </a>
 </body>
 </html>
-
-@if(Model.idHistorialClinico == 0)
-{
-    <p class="message-error">No hay historiales clinicos</p>
-    @Html.ActionLink("Crear historial clinico", "Create", "HistoriaClinica", new { PacienteId = Model.idPaciente }, new { @class = "btn-addHistory" })
-
-    ;
-}
-else
-{
-    <h2 class="title-detail2">Historial Clínico</h2>
-    <section class="detail-section historial-section">
-        <div class="detail-content-container">
-            Motivo de consulta:
-            <span>@Html.DisplayFor(model => model.MotivoDeConsulta)</span>
-        </div>
-        <div class="detail-content-container">
-            Enfermedad actual:
-            <span>@Html.DisplayFor(model => model.EnfermedadActual)</span>
-        </div>
-        <div class="detail-content-container">
-            Antecedentes:
-            <span>@Html.DisplayFor(model => model.Antecedentes)</span>
-        </div>
-        <div class="detail-content-container">
-            Hábitos PSB:
-            <span>@Html.DisplayFor(model => model.HabitosPSB)</span>
-        </div>
-        <div class="detail-content-container">
-            Examen físico:
-            <span>@Html.DisplayFor(model => model.ExamenFisico)</span>
-        </div>
-        <div class="detail-content-container">
-            Diagnóstico:
-            <span>@Html.DisplayFor(model => model.Diagnostico)</span>
-        </div>
-        <div class="detail-content-container">
-            Exámenes de laboratorio:
-            <span>@Html.DisplayFor(model => model.ExameneLaboratorio)</span>
-        </div>
-        <div class="detail-content-container">
-            Tratamiento:
-            <span>@Html.DisplayFor(model => model.Tratamiento)</span>
-        </div>
-    </section>
-    <div class="btn-container">
-        @Html.ActionLink("Editar Historial", "Edit", "HistoriaClinica", new { id = Model.idPaciente }, new { @class = "btn-edit" })
-        @Html.ActionLink("Ver Evoluciones", "GetEvoluciones", "Evolucion", new { id = Model.idPaciente }, new { @class = "btn-view" })
-    </div>
-
-
-}
-<a class="back-btn back-detail" href="@Url.Action("Index", "Home")">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-left">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M11 7l-5 5l5 5" />
-        <path d="M17 7l-5 5l5 5" />
-    </svg>
-</a>
-
-
-

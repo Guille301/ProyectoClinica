@@ -11,8 +11,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet" />
+          rel="stylesheet" />
     <title>@ViewData["Title"]</title>
+    <!-- Estilos específicos para esta vista -->
+    <style>
+        /* Estilos para los botones */
+        .btn-edit {
+            color: black;
+            padding: 1rem;
+            border: solid 1px black;
+            border-radius: 5px; /* Usamos un valor fijo en lugar de var() */
+            transition: all .3s;
+        }
+
+            .btn-edit:hover {
+                transform: scale(1.1);
+                background: black;
+                color: white;
+            }
+
+        .back-btn2 {
+            padding: 1rem;
+            background: linear-gradient(90deg, #000000 0%, #373737 100%);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            color: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            transition: all .3s;
+        }
+
+            .back-btn2::after {
+                content: 'Volver';
+                display: inline-block;
+                color: white;
+                text-decoration: none !important;
+                overflow: hidden;
+                opacity: 0;
+                max-width: 0;
+                transition: max-width 0.2s ease-in-out, opacity 0.3s ease-in-out;
+                white-space: nowrap;
+            }
+
+            .back-btn2:hover::after {
+                max-width: 50px;
+                opacity: 1;
+                margin-left: 0.5rem;
+            }
+
+        /* Estilos para el contenedor de evoluciones */
+        .evolution-container {
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        .header-evolution, .content-evolution {
+            display: grid;
+            grid-template-columns: 10vw 25vw;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        .content-evolution {
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+            .content-evolution p {
+                margin-bottom: 0.5rem;
+            }
+
+        /* Estilos para el mensaje de "No hay evoluciones" */
+        .msg-null {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        /* Estilos para el contenedor de botones */
+        .btn-container {
+            width: 100%;
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body class="body-detail">
     <h2 class="title-detail">Detalles del paciente</h2>
@@ -43,24 +131,6 @@
             </a>
             @Html.ActionLink("Agregar Evolucion", "Create", "Evolucion", new { id = Model.IdPaciente }, new { @class = "btn-edit" })
         </div>
-        @* <table class="table">
-            <thead>
-                <tr>
-                    <th>IdHisoria</th>
-                    <th>DescripcionEvolucion</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.listaEvoluciones)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.IdHistoria)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DescripcionEvolucion)</td>
-                    </tr>
-                }
-            </tbody>
-        </table> *@
         <article class="evolution-container">
             <div class="header-evolution">
                 <p>Fecha</p>

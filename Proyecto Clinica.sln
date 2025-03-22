@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proyecto Clinica", "Proyecto Clinica\Proyecto Clinica.csproj", "{D840F07C-6676-493F-807F-374DAB7F9BE6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaNegocio", "LogicaNegocio\LogicaNegocio.csproj", "{18C50675-A1C6-4898-A40A-E9809EA03F00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicaAplicacion", "LogicaAplicacion\LogicaAplicacion.csproj", "{663BA660-C60B-499B-A5DC-8C9D2DE7F0D3}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D840F07C-6676-493F-807F-374DAB7F9BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D840F07C-6676-493F-807F-374DAB7F9BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D840F07C-6676-493F-807F-374DAB7F9BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D840F07C-6676-493F-807F-374DAB7F9BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18C50675-A1C6-4898-A40A-E9809EA03F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18C50675-A1C6-4898-A40A-E9809EA03F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18C50675-A1C6-4898-A40A-E9809EA03F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
