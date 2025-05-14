@@ -15,68 +15,81 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
-    <section class="dashboard-container">
-        <form class="form-home" method="get" action="@Url.Action("Index", "Home")">
-            <div class="input-container input-dashboard">
-                <label for="nameSearch">Nombre</label>
-                <input class="input" type="text" name="nombre" placeholder="Buscar por nombre..." id="nameSearch" />
-            </div>
-            <div class="input-container input-dashboard">
-                <label for="documentSearch">Número de documento</label>
-                <input class="input" type="text" name="ci" placeholder="Buscar por documento..." id="documentSearch" />
-            </div>
-            <div class="search-btn-container">
-                <button type="submit" class="btn-search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                </button>
-            </div>
-        </form>
-        <article class="table-container">
-            <div class="header-table">
-                <p>Nombre Completo</p>
-                <p>Cedula</p>
-                <p>Patologia</p>
-            </div>
-            @if (Model != null && Model.Any())
-            {
-                foreach (var paciente in Model)
-                {
-                    <div class="table-row">
-                        <p>@paciente.NombreCompleto</p>
-                        <p>@paciente.NumeroDocumento</p>
-                        <p>@paciente.Patologia</p>
-                        <p class="buttons-row">@Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })</p>
-                        <p class="buttons-row">@Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })</p>
+    <header>
 
-                        <p class="btn_delete">
-                            <a class="trash" href="javascript:void(0);" onclick="confirmarEliminacion(@paciente.id)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M4 7l16 0" />
-                                    <path d="M10 11l0 6" />
-                                    <path d="M14 11l0 6" />
-                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                </svg>
-                            </a>
-                            <span class="text-delate">Eliminar</span>
-                        </p>
-                    </div>
+        <h1>Prueba</h1>
+
+
+    </header>
+
+    <main>
+
+        <section class="dashboard-container">
+            <form class="form-home" method="get" action="@Url.Action("Index", "Home")">
+                <div class="input-container input-dashboard">
+                    <label for="nameSearch">Nombre</label>
+                    <input class="input" type="text" name="nombre" placeholder="Buscar por nombre..." id="nameSearch" />
+                </div>
+                <div class="input-container input-dashboard">
+                    <label for="documentSearch">Número de documento</label>
+                    <input class="input" type="text" name="ci" placeholder="Buscar por documento..." id="documentSearch" />
+                </div>
+                <div class="search-btn-container">
+                    <button type="submit" class="btn-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                    </button>
+                </div>
+            </form>
+            <article class="table-container">
+                <div class="header-table">
+                    <p>Nombre Completo</p>
+                    <p>Cedula</p>
+                    <p>Patologia</p>
+                </div>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var paciente in Model)
+                    {
+                        <div class="table-row">
+                            <p>@paciente.NombreCompleto</p>
+                            <p>@paciente.NumeroDocumento</p>
+                            <p>@paciente.Patologia</p>
+                            <p class="buttons-row">@Html.ActionLink("Detalles", "ObtenerPacienteDetalle", "Paciente", new { id = paciente.id })</p>
+                            <p class="buttons-row">@Html.ActionLink("Historial Clinico", "ObtenerFichaPaciente", "HistoriaClinica", new { id = paciente.id })</p>
+
+                            <p class="btn_delete">
+                                <a class="trash" href="javascript:void(0);" onclick="confirmarEliminacion(@paciente.id)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M4 7l16 0" />
+                                        <path d="M10 11l0 6" />
+                                        <path d="M14 11l0 6" />
+                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                    </svg>
+                                </a>
+                                <span class="text-delate">Eliminar</span>
+                            </p>
+                        </div>
+                    }
                 }
-            }
-            else
-            {
-                <h2 class="error-msj">No hay pacientes disponibles</h2>
-            }
-        </article>
-        <a class="add-btn" asp-controller="Paciente" asp-action="Create">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 5l0 14" />
-                <path d="M5 12l14 0" />
-            </svg>
-        </a>
-    </section>
+                else
+                {
+                    <h2 class="error-msj">No hay pacientes disponibles</h2>
+                }
+            </article>
+            <a class="add-btn" asp-controller="Paciente" asp-action="Create">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 5l0 14" />
+                    <path d="M5 12l14 0" />
+                </svg>
+            </a>
+        </section>
+
+
+    </main>
+   
 
     <script src="https://kit.fontawesome.com/e68b49459b.js" crossorigin="anonymous"></script>
     <script src="~/js/site.js" type="text/javascript"></script>

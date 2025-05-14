@@ -12,6 +12,15 @@
     text-decoration: none;
     font-family: "Inter", serif;
 }
+/**************Header************/
+
+
+header {
+        background-color:blue;    
+        margin-bottom : 50px;
+        padding : 20px 0;
+        
+}
 
 .add-btn {
     position: absolute;
