@@ -1,4 +1,6 @@
-# Sistema de Gestión Clínica
+<img width="256" height="256" alt="logo_clinica" src="https://github.com/user-attachments/assets/be95f766-e8f7-406c-b7c5-0d4990a7f930" />
+
+# Sistema de gestión para la Clínica Carupano
 
 Aplicación web para la gestión de pacientes en un entorno clínico. Permite registrar pacientes, administrar historias clínicas y registrar evoluciones médicas. Desarrollada en ASP.NET Core 8 con arquitectura en capas y base de datos SQLite.
 
