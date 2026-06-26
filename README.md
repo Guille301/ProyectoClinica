@@ -2,7 +2,7 @@
 
 # Sistema de gestión para la Clínica Carupano
 
-Aplicación web para la gestión de pacientes en un entorno clínico. Permite registrar pacientes, administrar historias clínicas y registrar evoluciones médicas. Desarrollada en ASP.NET Core 8 con arquitectura en capas y base de datos SQLite.
+Aplicación web para la gestión de pacientes en un entorno clínico off-line. Permite registrar pacientes, administrar historias clínicas y registrar evoluciones médicas. Desarrollada en ASP.NET Core 8 con arquitectura en capas y base de datos SQLite.
 
 ---
 
